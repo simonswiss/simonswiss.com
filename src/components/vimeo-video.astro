@@ -1,0 +1,14 @@
+---
+export interface Props {
+  id: string
+}
+
+const { id } = Astro.props as Props
+---
+
+<iframe
+  class="aspect-video w-full"
+  src={`https://player.vimeo.com/video/${id}`}
+  frame-border="0"
+  allow="autoplay; fullscreen"
+  allow-full-screen></iframe>

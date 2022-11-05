@@ -1,0 +1,39 @@
+---
+import Layout from '~layouts/base.astro'
+import Logo from '~components/logo.astro'
+import Navigation from '~components/navigation.astro'
+import Footer from '~components/footer.astro'
+
+export interface Props {
+  title: string
+  description: string
+  gradientStart: string
+  gradientEnd: string
+}
+
+const { title, description, gradientStart, gradientEnd } = Astro.props as Props
+---
+
+<Layout title={title} description={description}>
+  <div class="flex min-h-screen flex-col">
+    <div class="flex-1">
+      <div
+        class={`bg-gradient-to-br px-4 pb-4 ${gradientStart} ${gradientEnd} sm:px-8 sm:pb-6 md:pb-10 lg:px-0`}
+      >
+        <div class="mx-auto max-w-4xl space-y-2">
+          <div class="flex items-center space-x-10">
+            <Logo />
+            <Navigation />
+          </div>
+          <h1
+            class="md:leading-14 font-party text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl"
+          >
+            {title}
+          </h1>
+        </div>
+      </div>
+      <main class="px-4 sm:px-8 lg:px-0 lg:py-12"><slot /></main>
+    </div>
+    <Footer gradientStart={gradientStart} gradientEnd={gradientEnd} />
+  </div>
+</Layout>

@@ -1,0 +1,27 @@
+---
+const navLinks = [
+  { name: 'Articles', path: '/articles' },
+  { name: 'Talks', path: '/talks' },
+  { name: 'Screencasts', path: '/screencasts' },
+]
+
+function cx(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+---
+
+<nav>
+  {
+    navLinks.map((link, index) => (
+      <a
+        href={link.path}
+        class={cx(
+          'font-party mr-4 mt-4 inline-block transform bg-white px-2 text-2xl font-semibold text-rose-900 shadow-md hover:rotate-0 sm:mr-12 sm:mt-0 sm:text-xl',
+          index % 2 === 0 ? 'rotate-3' : '-rotate-3'
+        )}
+      >
+        {link.name}
+      </a>
+    ))
+  }
+</nav>

@@ -1,0 +1,19 @@
+---
+import PageLayout from '~layouts/page.astro'
+import List from '~components/list.astro'
+
+const posts = (await Astro.glob('./articles/**/*.{md,mdx}')).sort(
+  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+)
+---
+
+<PageLayout
+  title="Blog"
+  description="This is the description"
+  gradientStart="from-cyan-500"
+  gradientEnd="to-blue-600"
+>
+  <div class="mx-auto max-w-3xl">
+    <List items={posts} />
+  </div>
+</PageLayout>

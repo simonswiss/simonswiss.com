@@ -1,0 +1,41 @@
+---
+export interface Props {
+  gradientStart: string
+  gradientEnd: string
+}
+
+const { gradientStart = '', gradientEnd = '' } = Astro.props as Props
+
+function cx(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+
+const footerClasses =
+  gradientStart !== '' && gradientEnd !== ''
+    ? cx(
+        'bg-gradient-to-br px-4 py-8 font-party text-lg text-white sm:px-8 lg:px-0',
+        gradientStart,
+        gradientEnd
+      )
+    : 'px-4 py-8 font-party text-lg text-white sm:px-8 lg:px-0'
+---
+
+<footer class={footerClasses}>
+  <div class="mx-auto max-w-4xl">
+    <p>
+      Built with{' '}
+      <a
+        class="inline-block rotate-2 bg-white/25 px-2 pt-1 hover:rotate-0"
+        href="https://astro.build"
+      >
+        Astro
+      </a>{' '}and{' '}
+      <a
+        class="inline-block -rotate-3 bg-white/25 px-2 pt-1 hover:rotate-0"
+        href="https://tailwindcss.com"
+      >
+        Tailwind CSS
+      </a>
+    </p>
+  </div>
+</footer>
