@@ -5,10 +5,10 @@ import { GoogleAnalytics } from 'astro-analytics'
 export interface Props {
   title: string
   description: string
-  image?: string
+  image: string
 }
 
-const { title, description, image = '/social-large.jpg' } = Astro.props
+const { title, description, image } = Astro.props
 const url = Astro.url
 
 const formattedTitle = url.pathname === '/' ? title : title + ' | simonswiss'

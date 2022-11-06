@@ -4,24 +4,26 @@ import { Picture } from 'astro-imagetools/components'
 export interface Props {
   src: string
   alt: string
+  class?: string
 }
 
-const { src, alt = '' } = Astro.props as Props
+const { src, alt = '', class: tweaks = '' } = Astro.props as Props
+function cx(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
 ---
 
-<div class="max-w-xl">
-  <figure>
-    <Picture
-      src={src}
-      alt={alt}
-      attributes={{
-        img: {
-          class: 'rounded-lg shadow-lg',
-        },
-      }}
-    />
-    <figcaption>
-      <slot />
-    </figcaption>
-  </figure>
-</div>
+<figure>
+  <Picture
+    src={src}
+    alt={alt}
+    attributes={{
+      img: {
+        class: cx('rounded-lg shadow-lg', tweaks),
+      },
+    }}
+  />
+  <figcaption>
+    <slot />
+  </figcaption>
+</figure>

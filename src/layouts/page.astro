@@ -7,11 +7,12 @@ import Footer from '~components/footer.astro'
 export interface Props {
   title: string
   description: string
+  image?: string
   gradientStart: string
   gradientEnd: string
 }
 
-const { title, description, gradientStart, gradientEnd } = Astro.props as Props
+const { title, description, image, gradientStart, gradientEnd } = Astro.props as Props
 ---
 
 <Layout title={title} description={description}>
@@ -20,7 +21,7 @@ const { title, description, gradientStart, gradientEnd } = Astro.props as Props
       <div
         class={`bg-gradient-to-br px-4 pb-4 ${gradientStart} ${gradientEnd} sm:px-8 sm:pb-6 md:pb-10 lg:px-0`}
       >
-        <div class="mx-auto max-w-4xl space-y-2">
+        <div class="mx-auto max-w-4xl space-y-4">
           <div class="flex items-center space-x-10">
             <Logo />
             <Navigation />
