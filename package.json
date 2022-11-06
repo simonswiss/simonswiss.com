@@ -17,6 +17,7 @@
     "@astrojs/sitemap": "^1.0.0",
     "astro": "^1.6.0",
     "astro-imagetools": "^0.6.11",
+    "find-up": "^6.3.0",
     "tinytime": "^0.2.6"
   },
   "devDependencies": {
