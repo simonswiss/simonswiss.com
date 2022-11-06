@@ -9,7 +9,7 @@ import IntroText from '../../../components/intro-text.astro'
 import YouTubeVideo from '../../../components/youtube-video.astro'
 import CaptionImage from '../../../components/caption-image.astro'
 
-import wardrobe from './wardrobe-booth.jpg'
+export const wardrobe = '/src/pages/articles/my-very-first-screencast/wardrobe-booth.jpg'
 
 <IntroText>
 
@@ -75,7 +75,7 @@ I don’t have a proper wardrobe anymore, but I got a mean towel rack that, enha
 
 Here’s what it looked like. Yes, I zipped the two hoodies together to the top and ducked my head under there.
 
-<CaptionImage src={wardrobe} alt="Wardrobe recording booth" width={600} height={799}>
+<CaptionImage src={wardrobe} alt="Wardrobe recording booth">
   The dodgy, "don't try this at home" recording booth.
 </CaptionImage>
 

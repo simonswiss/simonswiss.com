@@ -1,14 +1,25 @@
 ---
+import { Picture } from 'astro-imagetools/components'
+
 export interface Props {
   src: string
+  alt: string
 }
 
-const { src } = Astro.props as Props
+const { src, alt = '' } = Astro.props as Props
 ---
 
 <div class="max-w-xl">
   <figure>
-    <img src={src} alt="" class="rounded-lg shadow-lg" />
+    <Picture
+      src={src}
+      alt={alt}
+      attributes={{
+        img: {
+          class: 'rounded-lg shadow-lg',
+        },
+      }}
+    />
     <figcaption>
       <slot />
     </figcaption>

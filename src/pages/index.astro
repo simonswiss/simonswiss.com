@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro-imagetools/components'
+
 import Layout from '~layouts/base.astro'
 import Logo from '~components/logo.astro'
 import Navigation from '~components/navigation.astro'
@@ -25,11 +27,16 @@ const description = 'Swiss front end designer and developer based in Sydney, Aus
               and enthusiastic approach to life!
             </h1>
           </div>
-          <div class="flex-shrink-0">
-            <img
-              class="h-40 w-40 -rotate-12 transform transition hover:rotate-0 md:h-52 md:w-52"
+          <div class="flex-shrink-0 group">
+            <Picture
               src="/new-avatar.png"
-              alt="simonswiss avatar"
+              alt="simonswiss mugshot"
+              attributes={{
+                img: {
+                  class:
+                    'h-40 w-40 -rotate-12 transform transition group-hover:rotate-0 md:h-52 md:w-52',
+                },
+              }}
             />
           </div>
         </div>
