@@ -8,6 +8,9 @@ export interface Props {
 }
 
 const { title, description, image = '/social-large.jpg' } = Astro.props
+const url = Astro.url
+
+const formattedTitle = url.pathname === '/' ? title : title + ' | simonswiss'
 ---
 
 <!-- Global Metadata -->
@@ -17,8 +20,8 @@ const { title, description, image = '/social-large.jpg' } = Astro.props
 <meta name="generator" content={Astro.generator} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
+<title>{formattedTitle}</title>
+<meta name="title" content={formattedTitle} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
