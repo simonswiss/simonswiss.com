@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import { GoogleAnalytics } from 'astro-analytics'
 
 export interface Props {
   title: string
@@ -24,17 +25,8 @@ const formattedTitle = url.pathname === '/' ? title : title + ' | simonswiss'
 <meta name="title" content={formattedTitle} />
 <meta name="description" content={description} />
 
-<!-- Google Analytics (via Partytown) -->
-<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=UA-22027845-1"
-></script>
-<script type="text/partytown">
-  window.dataLayer = window.dataLayer || []
-  function gtag() {
-    dataLayer.push(arguments)
-  }
-  gtag('js', new Date())
-  gtag('config', 'UA-22027845-1')
-</script>
+<!-- Google Analytics -->
+<GoogleAnalytics id="UA-22027845-1" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
