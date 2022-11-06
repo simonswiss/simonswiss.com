@@ -3,9 +3,12 @@ import Layout from '~layouts/base.astro'
 import Logo from '~components/logo.astro'
 import Navigation from '~components/navigation.astro'
 import Footer from '~components/footer.astro'
+
+const title = 'simonswiss | Web designer, developer & content creator'
+const description = 'Swiss front end designer and developer based in Sydney, Australia.'
 ---
 
-<Layout title="Blog" description="This is the description">
+<Layout title={title} description={description}>
   <div class="bg-gradient-to-br from-rose-500 to-fuchsia-500">
     <div
       class="space-between mx-auto flex min-h-screen max-w-4xl flex-col px-4 sm:px-8 lg:max-w-5xl"

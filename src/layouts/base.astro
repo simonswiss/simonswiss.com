@@ -1,5 +1,5 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
+import BaseHead from '../components/base-head.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 
 // Props
@@ -14,7 +14,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props as Pr
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={title} />
+    <BaseHead title={title} description={description} />
   </head>
   <body class="antialiased">
     <main>

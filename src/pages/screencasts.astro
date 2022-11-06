@@ -2,16 +2,16 @@
 import PageLayout from '~layouts/page.astro'
 import List from '~components/list.astro'
 
-const items = (await Astro.glob('./articles/**/*.{md,mdx}')).sort(
+const items = (await Astro.glob('./screencasts/**/*.{md,mdx}')).sort(
   (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 )
 ---
 
 <PageLayout
-  title="Articles | simonswiss"
-  description="Thoughts and personal experiences on front end development, and sometimes blogging about other stuff!"
-  gradientStart="from-cyan-500"
-  gradientEnd="to-blue-600"
+  title="Screencasts | simonswiss"
+  description="Screencasts & content creation"
+  gradientStart="from-teal-400"
+  gradientEnd="to-sky-500"
 >
   <div class="mx-auto max-w-3xl">
     <List items={items} />

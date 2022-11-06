@@ -28,7 +28,7 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
             <dl>
               <dt class="sr-only">Published on</dt>
               <dd class="font-party text-base font-medium leading-6 text-gray-500">
-                <time dateTime={item.frontmatter.pubDate}>
+                <time datetime={item.frontmatter.pubDate}>
                   {postDateTemplate.render(new Date(item.frontmatter.pubDate))}
                 </time>
               </dd>
@@ -44,15 +44,15 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
               <div class="prose lg:prose-lg xl:prose-xl max-w-none text-gray-500">
                 <p>{item.frontmatter.description}</p>
               </div>
-            </div>
-            <div class="text-base font-medium leading-6">
-              <a
-                href={item.url}
-                class="font-party text-teal-500 hover:text-teal-600"
-                aria-label={`Read "${item.frontmatter.title}"`}
-              >
-                Read more &rarr;
-              </a>
+              <div class="text-base font-medium leading-6">
+                <a
+                  href={item.url}
+                  class="font-party text-teal-500 hover:text-teal-600"
+                  aria-label={`Read "${item.frontmatter.title}"`}
+                >
+                  Read more &rarr;
+                </a>
+              </div>
             </div>
           </article>
         </li>

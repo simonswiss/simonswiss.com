@@ -1,0 +1,47 @@
+---
+import tinytime from 'tinytime'
+import PageLayout from '~layouts/page.astro'
+
+const postDateTemplate = tinytime('{dddd}, {MMMM} {DD}, {YYYY}')
+
+const { frontmatter } = Astro.props
+---
+
+<PageLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  gradientStart="from-cyan-500"
+  gradientEnd="to-blue-600"
+>
+  <article class="">
+    <div class="mx-auto max-w-3xl">
+      <div class="xl:col-span-3 xl:row-span-2 xl:pb-0">
+        <div class="prose prose-purple max-w-none pt-10 pb-8 lg:prose-lg xl:prose-xl">
+          <dl class="space-y-10">
+            <div>
+              <dt class="sr-only">Published on</dt>
+              <dd class="font-party text-base font-medium leading-6 text-gray-500">
+                <time datetime={frontmatter.pubDate}
+                  >{postDateTemplate.render(new Date(frontmatter.pubDate))}</time
+                >
+              </dd>
+            </div>
+          </dl>
+          <slot />
+        </div>
+        <footer class="my-8">
+          <hr class="ml-0 mb-4 w-16 border-2 border-t border-gray-300" />
+          <p class="text-gray-700 md:text-lg lg:text-xl">
+            <a
+              class="underline"
+              href={`https://twitter.com/search?q=simonswiss%20${frontmatter.title}`}
+            >
+              Discuss on Twitter &rarr;
+            </a>
+          </p>
+        </footer>
+      </div>
+    </div>
+    <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+  </article>
+</PageLayout>
