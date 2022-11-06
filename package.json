@@ -16,16 +16,16 @@
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
     "astro": "^1.6.0",
-    "astro-imagetools": "^0.6.11",
-    "find-up": "^6.3.0",
-    "tinytime": "^0.2.6"
+    "astro-imagetools": "^0.6.11"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
     "autoprefixer": "^10.4.13",
+    "find-up": "^6.3.0",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "tailwindcss": "^3.2.2"
+    "tailwindcss": "^3.2.2",
+    "tinytime": "^0.2.6"
   }
 }
