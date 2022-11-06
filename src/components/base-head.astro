@@ -24,6 +24,18 @@ const formattedTitle = url.pathname === '/' ? title : title + ' | simonswiss'
 <meta name="title" content={formattedTitle} />
 <meta name="description" content={description} />
 
+<!-- Google Analytics (via Partytown) -->
+<script async type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=UA-22027845-1"
+></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || []
+  function gtag() {
+    dataLayer.push(arguments)
+  }
+  gtag('js', new Date())
+  gtag('config', 'UA-22027845-1')
+</script>
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
