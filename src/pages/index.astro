@@ -45,44 +45,50 @@ const description = 'Swiss front end designer and developer based in Sydney, Aus
           <Navigation />
         </div>
 
-        <div
-          class="max-w-2xl my-24 rounded-2xl shadow-purple-900/10 shadow-xl flex overflow-hidden ring ring-black relative hover:shadow-purple-900/20 hover:shadow-lg transition-all"
-        >
+        <div class="relative group max-w-2xl hover:-translate-y-px transition">
           <div
-            class="hidden md:block w-full max-w-[12rem] relative overflow-hidden border-r-[3px] border-black"
+            class="group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 origin-top-left transition duration-75 absolute inset-0 bg-black/30 rounded-2xl"
           >
-            <Picture
-              src="/src/images/corgi-avatar.png"
-              alt="illustration of the Pro Tailwind corgi mascot"
-              attributes={{
-                img: {
-                  class: 'min-h-full absolute h-full object-cover origin-right',
-                },
-              }}
-            />
           </div>
-          <div class="p-8 grid items-center bg-white">
+          <div
+            class="my-24 rounded-2xl shadow-purple-900/10 shadow-xl flex overflow-hidden ring ring-black relative hover:shadow-purple-900/20 hover:shadow-lg transition-all"
+          >
             <div
-              class="md:hidden mb-4 relative h-32 w-32 ring ring-black rounded-full overflow-hidden"
+              class="hidden md:block w-full max-w-[12rem] relative overflow-hidden border-r-[3px] border-black"
             >
               <Picture
                 src="/src/images/corgi-avatar.png"
                 alt="illustration of the Pro Tailwind corgi mascot"
                 attributes={{
                   img: {
-                    class: 'absolute h-full w-full inset-0 object-cover scale-110',
+                    class: 'min-h-full absolute h-full object-cover origin-right',
                   },
                 }}
               />
             </div>
-            <p class="prose prose-pink prose-lg mb-0 font-party">
-              I'm building <a href="https://protailwind.com">Pro Tailwind</a>, an advanced-level
-              course on Tailwind CSS. We dig into techniques that scale up with your team. <a
-                href="https://protailwind.com">Sign up today!</a
+            <div class="relative p-8 grid items-center bg-white">
+              <div
+                class="md:hidden mb-4 relative h-32 w-32 ring ring-black rounded-full overflow-hidden"
               >
-            </p>
+                <Picture
+                  src="/src/images/corgi-avatar.png"
+                  alt="illustration of the Pro Tailwind corgi mascot"
+                  attributes={{
+                    img: {
+                      class: 'absolute h-full w-full inset-0 object-cover scale-110',
+                    },
+                  }}
+                />
+              </div>
+              <p class="prose prose-pink prose-lg mb-0 font-party">
+                I'm building <a href="https://protailwind.com">Pro Tailwind</a>, an advanced-level
+                course on Tailwind CSS. We dig into techniques that scale up with your team. <a
+                  href="https://protailwind.com">Sign up today!</a
+                >
+              </p>
+            </div>
+            <a href="https://protailwind.com" class="absolute inset-0 z-10"></a>
           </div>
-          <a href="https://protailwind.com" class="absolute inset-0 z-10"></a>
         </div>
       </div>
       <Footer />
