@@ -26,7 +26,7 @@ const formattedTitle = url.pathname === '/' ? title : title + ' | simonswiss'
 <meta name="description" content={description} />
 
 <!-- Google Analytics -->
-<GoogleAnalytics id="UA-22027845-1" />
+{url.hostname === 'simonswiss.com' && <GoogleAnalytics id="UA-22027845-1" />}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
