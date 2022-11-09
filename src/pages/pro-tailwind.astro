@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro-imagetools/components'
+
 import PageLayout from '~layouts/page.astro'
 import IntroText from '~components/intro-text.astro'
 import CaptionImage from '~components/caption-image.astro'
@@ -48,8 +50,51 @@ import CaptionImage from '~components/caption-image.astro'
         </li>
         <li>Share and consume the same UI components across multiple, unrelated projects</li>
       </ul>
-
-      <p>Sign up to day at <a href="https://protailwind.com">https://protailwind.com</a> ✨</p>
     </div>
+    <hr class="ml-0 mb-4 w-16 border-2 border-t border-gray-300" />
+    <footer class="relative group hover:-translate-y-px transition">
+      <div
+        class="group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 origin-top-left transition duration-75 absolute inset-0 bg-purple-800/30 rounded-2xl"
+      >
+      </div>
+      <div
+        class="my-16 rounded-2xl shadow-purple-900/10 shadow-xl flex overflow-hidden ring ring-black relative hover:shadow-purple-900/20 hover:shadow-lg transition-all"
+      >
+        <div
+          class="hidden md:block w-full max-w-[12rem] relative overflow-hidden border-r-[3px] border-black"
+        >
+          <Picture
+            src="/src/images/corgi-avatar.png"
+            alt="illustration of the Pro Tailwind corgi mascot"
+            attributes={{
+              img: {
+                class: 'min-h-full absolute h-full object-cover origin-right',
+              },
+            }}
+          />
+        </div>
+        <div class="bg-white p-8 grid place-items-center w-full">
+          <div
+            class="md:hidden mx-auto mb-4 relative h-32 w-32 ring ring-black rounded-full overflow-hidden"
+          >
+            <Picture
+              src="/src/images/corgi-avatar.png"
+              alt="illustration of the Pro Tailwind corgi mascot"
+              attributes={{
+                img: {
+                  class: 'absolute h-full w-full inset-0 object-cover scale-110',
+                },
+              }}
+            />
+          </div>
+          <p
+            class="font-party prose prose-purple prose-lg xl:prose-xl mb-0 text-center md:text-left"
+          >
+            Sign up to day at <a href="https://protailwind.com">ProTailwind.com</a> ✨
+          </p>
+        </div>
+        <a href="https://protailwind.com" class="absolute inset-0 z-10"></a>
+      </div>
+    </footer>
   </div>
 </PageLayout>
