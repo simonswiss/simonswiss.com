@@ -1,0 +1,46 @@
+---
+const { page } = Astro.props
+function cx(...classnames: string[]) {
+  return classnames.filter(Boolean).join(' ')
+}
+---
+
+{
+  page.lastPage > 1 && (
+    <nav
+      class="font-party grid grid-cols-3 items-center justify-between border-t border-gray-200 bg-white py-3"
+      aria-label="Pagination"
+    >
+      <div class="justify-self-start">
+        <a
+          href={page.url.prev}
+          class={cx(
+            'relative inline-flex items-center font-medium',
+            page.currentPage > 1 ? 'text-gray-700' : 'pointer-events-none text-gray-300'
+          )}
+        >
+          &larr; Previous
+        </a>
+      </div>
+      <div>
+        <p class="text-gray-700">
+          Showing page
+          <span class="font-bold">{page.currentPage}</span>
+          of
+          <span class="font-bold">{page.lastPage}</span>
+        </p>
+      </div>
+      <div class="justify-self-end">
+        <a
+          href={page.url.next}
+          class={cx(
+            'relative inline-flex items-center font-medium',
+            page.lastPage > page.currentPage ? 'text-gray-700' : 'pointer-events-none text-gray-300'
+          )}
+        >
+          Next &rarr;
+        </a>
+      </div>
+    </nav>
+  )
+}

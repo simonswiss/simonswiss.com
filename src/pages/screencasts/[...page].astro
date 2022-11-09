@@ -1,0 +1,26 @@
+---
+import PageLayout from '~layouts/page.astro'
+import List from '~components/list.astro'
+import Pagination from '~components/pagination.astro'
+import { PAGINATION_COUNT } from '~/config'
+
+export async function getStaticPaths({ paginate }: any) {
+  const items = (await Astro.glob('./**/*.{md,mdx}')).sort(
+    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+  )
+  return paginate(items, { pageSize: PAGINATION_COUNT })
+}
+const { page } = Astro.props
+---
+
+<PageLayout
+  title="Screencasts"
+  description="Screencasts & content creation"
+  gradientStart="from-teal-400"
+  gradientEnd="to-sky-500"
+>
+  <div class="mx-auto max-w-3xl">
+    <List items={page.data} />
+    <Pagination page={page} />
+  </div>
+</PageLayout>
