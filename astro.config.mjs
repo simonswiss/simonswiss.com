@@ -5,6 +5,6 @@ import robotsTxt from 'astro-robots-txt'
 import { astroImageTools } from 'astro-imagetools'
 
 export default defineConfig({
-  site: 'https://simonswiss.com',
+  site: 'https://simonswiss.com/',
   integrations: [mdx(), sitemap(), robotsTxt(), astroImageTools],
 })
