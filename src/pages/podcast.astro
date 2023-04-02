@@ -1,0 +1,33 @@
+---
+import PageLayout from '~layouts/page.astro'
+import IntroText from '~components/intro-text.astro'
+import YouTubeVideo from '~components/youtube-video.astro'
+import ProtailwindCta from '~components/protailwind-cta.astro'
+---
+
+<PageLayout
+  title="The NavBar: A webdev podcast co-hosted with Jon Meyers from Supabase"
+  description="The NavBar is a podcast that helps you NAVigate the web and raise the BAR of your content creation."
+  image="/protailwind.png"
+  gradientStart="from-blue-400"
+  gradientEnd="to-emerald-500"
+>
+  <div class="pt-10 mx-auto max-w-3xl">
+    <IntroText>
+      The NavBar is a podcast by Jon Meyers and Simon Vrachliotis, covering all things web
+      development and content creation.
+    </IntroText>
+
+    <YouTubeVideo id="pdFqdgYk8jA" />
+
+    <div class="prose prose-purple max-w-none pt-10 pb-8 lg:prose-lg xl:prose-xl">
+      <p>
+        You can listen to the NavBar in your favorite podcast app, or on the web at <a
+          href="https://podcasters.spotify.com/pod/show/navbar">The NavBar's homepage</a
+        >.
+      </p>
+    </div>
+    <hr class="ml-0 mb-4 w-16 border-2 border-t border-gray-300" />
+    <ProtailwindCta />
+  </div>
+</PageLayout>

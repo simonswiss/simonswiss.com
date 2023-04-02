@@ -1,3 +1,6 @@
 {
-  "redirects": [{ "source": "/pro-tailwind", "destination": "/protailwind" }]
+  "redirects": [
+    { "source": "/pro-tailwind", "destination": "/course" },
+    { "source": "/protailwind", "destination": "/course" }
+  ]
 }
