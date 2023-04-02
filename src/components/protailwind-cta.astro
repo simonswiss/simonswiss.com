@@ -1,0 +1,53 @@
+---
+import { Picture } from 'astro-imagetools/components'
+---
+
+<footer class="relative group hover:-translate-y-px transition">
+  <div
+    class="group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 origin-top-left transition duration-75 absolute inset-0 bg-purple-800/30 rounded-2xl"
+  >
+  </div>
+  <div
+    class="my-16 rounded-2xl shadow-purple-900/10 shadow-xl flex overflow-hidden ring ring-black relative hover:shadow-purple-900/20 hover:shadow-lg transition-all"
+  >
+    <div
+      class="hidden md:block w-full max-w-[12rem] relative overflow-hidden border-r-[3px] border-black"
+    >
+      <Picture
+        src="/src/images/corgi-avatar.png"
+        alt="illustration of the Pro Tailwind corgi mascot"
+        attributes={{
+          img: {
+            class: 'min-h-full absolute h-full object-cover origin-right',
+          },
+        }}
+      />
+    </div>
+    <div class="bg-white p-8 grid place-items-center flex-1">
+      <div
+        class="md:hidden mx-auto mb-4 relative h-32 w-32 ring ring-black rounded-full overflow-hidden"
+      >
+        <Picture
+          src="/src/images/corgi-avatar.png"
+          alt="illustration of the Pro Tailwind corgi mascot"
+          attributes={{
+            img: {
+              class: 'absolute h-full w-full inset-0 object-cover scale-110',
+            },
+          }}
+        />
+      </div>
+      <div class="font-party prose prose-purple prose-lg xl:prose-xl mb-0 text-center md:text-left">
+        <slot>
+          <p>
+            I'm building <a href="https://protailwind.com">Pro Tailwind</a>, an advanced-level
+            course on Tailwind CSS. We dig into techniques that scale up with your team. <a
+              href="https://protailwind.com">Sign up today!</a
+            >
+          </p>
+        </slot>
+      </div>
+    </div>
+    <a href="https://protailwind.com" class="absolute inset-0 z-10"></a>
+  </div>
+</footer>
