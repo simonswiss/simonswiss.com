@@ -1,16 +1,20 @@
 ---
+import { getCollection } from 'astro:content'
+
 import PageLayout from '~layouts/page.astro'
 import List from '~components/list.astro'
 import Pagination from '~components/pagination.astro'
 import { PAGINATION_COUNT } from '~/config'
 
-export async function getStaticPaths({ paginate }: any) {
-  const items = (await Astro.glob('./**/*.{md,mdx}')).sort(
-    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-  )
-  return paginate(items, { pageSize: PAGINATION_COUNT })
-}
 const { page } = Astro.props
+
+export async function getStaticPaths({ paginate }: any) {
+  const articles = await getCollection('articles')
+  const sortedArticles = articles.sort(
+    (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  )
+  return paginate(sortedArticles, { pageSize: PAGINATION_COUNT })
+}
 ---
 
 <PageLayout
