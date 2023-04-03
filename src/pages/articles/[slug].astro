@@ -1,0 +1,63 @@
+---
+import { getCollection, getEntryBySlug } from 'astro:content'
+import tinytime from 'tinytime'
+
+import PageLayout from '~layouts/page.astro'
+import ProtailwindCta from '~components/protailwind-cta.astro'
+
+const postDateTemplate = tinytime('{dddd}, {MMMM} {DD}, {YYYY}')
+
+const { slug } = Astro.params
+if (slug === undefined) {
+  throw new Error('slug is undefined')
+}
+const article = await getEntryBySlug('articles', slug)
+if (article === undefined) {
+  throw new Error('article is undefined')
+}
+
+const { Content } = await article.render()
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles')
+  const sortedArticles = articles.sort(
+    (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  )
+  return sortedArticles.map((article) => ({
+    params: {
+      slug: article.slug,
+    },
+  }))
+}
+---
+
+<PageLayout
+  title={article.data.title}
+  description={article.data.description}
+  gradientStart="from-cyan-500"
+  gradientEnd="to-blue-600"
+>
+  <article>
+    <div class="mx-auto max-w-3xl">
+      <div class="xl:col-span-3 xl:row-span-2 xl:pb-0">
+        <div class="prose prose-purple max-w-none pb-8 pt-10 lg:prose-lg xl:prose-xl">
+          <dl class="space-y-10">
+            <div>
+              <dt class="sr-only">Published on</dt>
+              <dd class="font-party text-base font-medium leading-6 text-gray-500">
+                <time datetime={article.data.pubDate}
+                  >{postDateTemplate.render(new Date(article.data.pubDate))}</time
+                >
+              </dd>
+            </div>
+          </dl>
+          <Content />
+        </div>
+        <hr class="mb-4 ml-0 w-16 border-2 border-t border-gray-300" />
+        <ProtailwindCta />
+      </div>
+
+      <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+    </div>
+  </article>
+</PageLayout>

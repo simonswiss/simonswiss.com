@@ -1,21 +1,7 @@
 ---
 import tinytime from 'tinytime'
 
-type Item = {
-  frontmatter: {
-    title: string
-    description: string
-    pubDate: string
-    thumbnail?: string
-  }
-  url: string
-}
-
-export interface Props {
-  items: Item[]
-}
-
-const { items } = Astro.props as Props
+const { items } = Astro.props
 
 const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
 ---
@@ -29,36 +15,39 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
             <dl>
               <dt class="sr-only">Published on</dt>
               <dd class="font-party text-base font-medium leading-6 text-gray-500">
-                <time datetime={item.frontmatter.pubDate}>
-                  {postDateTemplate.render(new Date(item.frontmatter.pubDate))}
+                <time datetime={item.data.pubDate}>
+                  {postDateTemplate.render(new Date(item.data.pubDate))}
                 </time>
               </dd>
             </dl>
             <div class="space-y-5 xl:col-span-3">
               <div class="space-y-6">
                 <h2 class="text-2xl font-bold leading-8 tracking-tight md:text-3xl">
-                  <a href={item.url} class="font-party text-gray-900 hover:underline">
-                    {item.frontmatter.title}
+                  <a
+                    href={`/${item.collection}/${item.slug}`}
+                    class="font-party text-gray-900 hover:underline"
+                  >
+                    {item.data.title}
                   </a>
                 </h2>
               </div>
               <div class="prose lg:prose-lg xl:prose-xl flex max-w-none flex-col gap-8 text-gray-500 sm:flex-row">
-                {item.frontmatter.thumbnail && (
-                  <a class="not-prose shrink-0" href={item.url}>
+                {item.data.thumbnail && (
+                  <a class="not-prose shrink-0" href={`/${item.collection}/${item.slug}`}>
                     <img
                       class="w-40 rounded-xl ring ring-black hover:ring-purple-700"
-                      src={item.frontmatter.thumbnail}
+                      src={item.data.thumbnail}
                       alt=""
                     />
                   </a>
                 )}
-                <p class="!my-0">{item.frontmatter.description}</p>
+                <p class="!my-0" set:html={item.data.description} />
               </div>
               <div class="text-base font-medium leading-6">
                 <a
-                  href={item.url}
+                  href={`/${item.collection}/${item.slug}`}
                   class="font-party text-teal-500 hover:text-teal-600"
-                  aria-label={`Read "${item.frontmatter.title}"`}
+                  aria-label={`Read "${item.data.title}"`}
                 >
                   Read more &rarr;
                 </a>
