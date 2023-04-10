@@ -155,6 +155,13 @@ declare module 'astro:content' {
   collection: "screencasts",
   data: any
 } & { render(): Render[".mdx"] },
+"live-stream-with-kent-c-dodds/index.mdx": {
+  id: "live-stream-with-kent-c-dodds/index.mdx",
+  slug: "live-stream-with-kent-c-dodds",
+  body: string,
+  collection: "screencasts",
+  data: any
+} & { render(): Render[".mdx"] },
 "rebuilding-instagram-stories-with-tailwind/index.mdx": {
   id: "rebuilding-instagram-stories-with-tailwind/index.mdx",
   slug: "rebuilding-instagram-stories-with-tailwind",
