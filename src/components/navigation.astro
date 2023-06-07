@@ -1,10 +1,10 @@
 ---
 const navLinks = [
-  { name: 'Course', path: '/course' },
   { name: 'Podcast', path: '/podcast' },
+  { name: 'Screencasts', path: '/screencasts' },
   { name: 'Articles', path: '/articles' },
   { name: 'Talks', path: '/talks' },
-  { name: 'Screencasts', path: '/screencasts' },
+  { name: 'Course', path: '/course' },
 ]
 
 function cx(...classes: string[]) {
@@ -18,8 +18,11 @@ function cx(...classes: string[]) {
       <a
         href={link.path}
         class={cx(
-          'font-party mr-4 mt-4 inline-block transform bg-white px-2 text-lg font-semibold text-rose-900 shadow-md hover:rotate-0 sm:mr-12 sm:text-xl md:mt-0',
-          index % 2 === 0 ? 'rotate-3' : '-rotate-3'
+          'font-party mr-4 mt-4 inline-block bg-white px-2 text-lg font-semibold hover:rotate-0 sm:mr-12 sm:text-xl md:mt-0',
+          index % 2 === 0 ? 'rotate-3' : '-rotate-3',
+          link.path === '/course'
+            ? 'rounded-[1px] bg-cyan-300 px-3 py-0.5 text-cyan-900 shadow-xl shadow-pink-100/30 ring-2 ring-cyan-200'
+            : 'bg-white text-rose-900 shadow-md'
         )}
       >
         {link.name}
