@@ -2,6 +2,12 @@
 import { getCollection, getEntryBySlug } from 'astro:content'
 import tinytime from 'tinytime'
 
+import YouTubeVideo from '~components/youtube-video.astro'
+import VimeoVideo from '~components/vimeo-video.astro'
+import CaptionImage from '~components/caption-image.astro'
+import IntroText from '~components/intro-text.astro'
+import Tweet from '~components/tweet.astro'
+
 import PageLayout from '~layouts/page.astro'
 import ProtailwindCta from '~components/protailwind-cta.astro'
 
@@ -51,7 +57,9 @@ export async function getStaticPaths() {
               </dd>
             </div>
           </dl>
-          <Content />
+          <Content components={{
+            IntroText, YouTubeVideo, CaptionImage, VimeoVideo, Tweet
+          }} />
         </div>
         <hr class="mb-4 ml-0 w-16 border-2 border-t border-gray-300" />
         <ProtailwindCta />
