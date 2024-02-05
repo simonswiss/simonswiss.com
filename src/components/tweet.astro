@@ -1,1 +1,11 @@
-<><slot /></>
+---
+import { Tweet as AstroTweet } from '@astro-community/astro-embed-twitter';
+
+type TweetProps = {
+  id: string
+}
+
+const { id } = Astro.props as TweetProps
+---
+
+<AstroTweet id={id} />
