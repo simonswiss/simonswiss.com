@@ -220,6 +220,13 @@ declare module 'astro:content' {
   collection: "articles";
   data: any
 } & { render(): Render[".mdx"] };
+"tailwind-v4-multi-theme/index.mdx": {
+	id: "tailwind-v4-multi-theme/index.mdx";
+  slug: "tailwind-v4-multi-theme";
+  body: string;
+  collection: "articles";
+  data: any
+} & { render(): Render[".mdx"] };
 };
 "screencasts": {
 "container-queries-in-tailwind/index.mdx": {
