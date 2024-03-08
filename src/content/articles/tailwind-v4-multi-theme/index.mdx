@@ -1,0 +1,166 @@
+---
+  title: 'Tailwind CSS v4: Multi-Theme Strategy'
+  description: 'You’ve probably heard that a very alpha version of Tailwind CSS v4 has been open sourced. It’s definitely not ready for production yet, but it’s always good to take a look at what’s coming!'
+  pubDate: Mar 09 2024
+---
+
+import IntroText from '../../../components/intro-text.astro'
+import CaptionImage from '../../../components/caption-image.astro'
+
+export const theming1 = '/src/content/articles/tailwind-v4-multi-theme/theming-1.png'
+export const theming2 = '/src/content/articles/tailwind-v4-multi-theme/theming-2.png'
+export const theming3 = '/src/content/articles/tailwind-v4-multi-theme/theming-3.png'
+export const theming4 = '/src/content/articles/tailwind-v4-multi-theme/theming-4.png'
+
+<IntroText>
+  You’ve probably heard that a very alpha version of Tailwind CSS v4 [has been open sourced](https://tailwindcss.com/blog/tailwindcss-v4-alpha).
+
+It’s definitely not ready for production yet, but it’s always good to take a look at what’s coming!
+
+</IntroText>
+
+## Theme configuration in CSS
+
+One of the key new features in v4 is the ability to customize the theme directly in a CSS file instead of the Tailwind config.
+
+Theme values (like colors, font sizes, spacing) can be defined with CSS variables like so:
+
+```css
+/* app/styles.css */
+@import 'tailwindcss' @theme {
+  --color-primary: #aab9ff;
+}
+```
+
+This is the equivalent of doing the following in Tailwind CSS v3:
+
+```tsx
+// tailwind.config.ts
+export default {
+  theme: {
+    colors: {
+      primary: '#aab9ff',
+    },
+  },
+}
+```
+
+In v4, the CSS variables are also exposed in your CSS output, which means you can “consume” those variables anywhere you need it:
+
+```html
+<div class="bg-[--color-primary]"></div>
+```
+
+---
+
+## Multi-Theme Strategy in Tailwind
+
+If you’ve taken my [Multi-Theme Strategy workshop](https://www.protailwind.com/workshops/multi-theme-strategy), you know that the procedure to define _themable_ CSS variables was somewhat convoluted:
+
+### 1. Define CSS variables holding `R` `G` `B` channels
+
+```css
+:root {
+  --primary: 170 185 255;
+}
+```
+
+### 2. Compose that CSS variable with an `rgb()` function + `<alpha-value>` to add a color in the `tailwind.config.ts` file
+
+```tsx
+theme: {
+  extend: {
+    colors: {
+      primary: rbg(var(--primary) / <alpha-value>)
+    }
+  }
+}
+```
+
+Honestly, this is quite painful. And forces you to define your colors in a weird, custom format (space-separated `R` `G` and `B` channels).
+
+---
+
+## It’s way easier in Tailwind v4
+
+Tailwind CSS v4 drastically simplifies the process of defining themable CSS variables:
+
+### 1. Define a CSS variable with _any_ color format, in CSS
+
+```css
+@theme {
+  --color-primary: #aab9ff;
+}
+```
+
+### 2. That’s it! there is no step 2.
+
+You can redefine this variable value at different theme scopes like so:
+
+```css
+@theme {
+  --color-primary: #aab9ff;
+}
+
+@layer base {
+  [data-theme='ocean'] {
+    --color-primary: #aab9ff;
+  }
+
+  [data-theme='rainforest'] {
+    --color-primary: #56d0a0;
+  }
+
+  [data-theme='candy'] {
+    --color-primary: #f9a8d4;
+  }
+}
+```
+
+And that’s all you need to apply themable classes to your HTML:
+
+<CaptionImage src={theming1} alt="Minimal theming strategy in Tailwind v4">
+  Minimal theming strategy in Tailwind v4
+</CaptionImage>
+
+You’ll notice we’re consuming the CSS variable with an arbitrary value here. This is because using the `bg-primary` class directly would retrieve the actual HEX color defined in the `@theme` block:
+
+<CaptionImage src={theming2} alt="CSS class hover showing the HEX value consumption">
+  Utilities generated from the `@theme` block will consume the actual color value defined.
+</CaptionImage>
+
+If you want to use “normal” utility classes like `bg-primary` directly, you can go an extra step:
+
+## Mapping the `@theme` CSS variables to another variable
+
+You can define _another_ CSS variable which will be consumed by the `@theme` theme variable:
+
+<CaptionImage src={theming3} alt="Advanced theming setup">
+  Theming setup to support `bg-primary` directly
+</CaptionImage>
+
+This time, the `bg-primary` class will consume a CSS variable that changes for every theme scope.
+
+## No `<alpha-value>` needed!
+
+Did you notice we didn’t have to _construct_ an `rgb()` color composed with the `<alpha-value>`?
+
+Opacity support straight up works with HEX or any other color format, because Tailwind CSS v4 is using `[color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix)` to compose the opacity:
+
+<CaptionImage src={theming4} alt="Opacity support without alpha-value">
+  Opacity support without using Tailwind's internal `<alpha-value>`.
+</CaptionImage>
+
+---
+
+## Updating the Multi-Theme Strategy workshop
+
+This all means that some parts of the [Multi-Theme Strategy workshop](https://www.protailwind.com/workshops/multi-theme-strategy) _could_ be simplified.
+
+I say _could_, because right now, there is no Plugin API support for Tailwind CSS v4. There isn’t even support for the `tailwind.config` file.
+
+In other words, you can manually define themable CSS variables, but you can’t automate the process of passing a JSON theme to a plugin and have it generate all the theming parts for you.
+
+When that becomes available, I’ll definitely look into upgrading the strategy to the best possible approach in v4!
+
+Have a great day ❤️

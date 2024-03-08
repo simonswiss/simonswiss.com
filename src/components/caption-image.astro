@@ -13,7 +13,7 @@ function cx(...classes: string[]) {
 }
 ---
 
-<figure>
+<figure class="not-prose">
   <Picture
     src={src}
     alt={alt}
@@ -23,7 +23,7 @@ function cx(...classes: string[]) {
       },
     }}
   />
-  <figcaption>
+  <figcaption class="mt-4 text-base text-gray-500">
     <slot />
   </figcaption>
 </figure>
