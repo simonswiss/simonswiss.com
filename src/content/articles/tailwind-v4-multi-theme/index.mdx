@@ -123,7 +123,9 @@ And that’s all you need to apply themable classes to your HTML:
   Minimal theming strategy in Tailwind v4
 </CaptionImage>
 
-You’ll notice we’re consuming the CSS variable with an arbitrary value here. This is because using the `bg-primary` class directly would retrieve the actual HEX color defined in the `@theme` block:
+> Wait, why can't I just use the `bg-primary` class?
+
+Well, using the `bg-primary` class directly would retrieve the actual HEX color defined in the `@theme` block:
 
 <CaptionImage src={theming2} alt="CSS class hover showing the HEX value consumption">
   Utilities generated from the `@theme` block will consume the actual color value defined.
