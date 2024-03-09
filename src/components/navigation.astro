@@ -10,6 +10,10 @@ const navLinks = [
 function cx(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
+
+const courseLinkClasses = 'rounded-[1px] bg-cyan-300 px-3 py-0.5 text-cyan-900 shadow-xl shadow-pink-100/30 ring-2 ring-cyan-200 transition hover:scale-105 hover:bg-yellow-300 hover:text-yellow-800 hover:ring-yellow-200' 
+
+const regularLinkClasses = 'bg-white text-rose-900 shadow-md'
 ---
 
 <nav>
@@ -18,11 +22,9 @@ function cx(...classes: string[]) {
       <a
         href={link.path}
         class={cx(
-          'font-party mr-4 mt-4 inline-block px-2 text-lg font-semibold hover:rotate-0 sm:mr-12 sm:text-xl md:mt-0',
+          'font-party mr-4 mt-4 inline-block px-2 font-semibold hover:rotate-0 sm:mr-12 sm:text-xl md:mt-0',
           index % 2 === 0 ? 'rotate-3' : '-rotate-3',
-          link.path === 'https://protailwind.com'
-            ? 'rounded-[1px] bg-cyan-300 px-3 py-0.5 text-cyan-900 shadow-xl shadow-pink-100/30 ring-2 ring-cyan-200 transition hover:scale-105 hover:bg-yellow-300 hover:text-yellow-800 hover:ring-yellow-200'
-            : 'bg-white text-rose-900 shadow-md'
+          link.path === 'https://protailwind.com' ? courseLinkClasses : regularLinkClasses
         )}
       >
         {link.name}
