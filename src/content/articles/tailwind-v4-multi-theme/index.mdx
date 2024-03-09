@@ -145,7 +145,7 @@ This time, the `bg-primary` class will consume a CSS variable that changes for e
 
 Did you notice we didn’t have to _construct_ an `rgb()` color composed with the `<alpha-value>`?
 
-Opacity support straight up works with HEX or any other color format, because Tailwind CSS v4 is using `[color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix)` to compose the opacity:
+Opacity support straight up works with HEX or any other color format, because Tailwind CSS v4 is using [`color-mix()`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to compose the opacity:
 
 <CaptionImage src={theming4} alt="Opacity support without alpha-value">
   Opacity support without using Tailwind's internal `<alpha-value>`.
