@@ -5,6 +5,14 @@ pubDate: May 13 2016
 ---
 
 import IntroText from '~components/intro-text.astro'
+import YouTubeVideo from '~components/youtube-video.astro'
+import CaptionImage from '~components/caption-image.astro'
+
+export const image1 = '/src/content/articles/diy-audio-recording-booth/booth-build-1.webp'
+export const image2 = '/src/content/articles/diy-audio-recording-booth/booth-build-2.webp'
+export const image3 = '/src/content/articles/diy-audio-recording-booth/booth-build-3.webp'
+export const image4 = '/src/content/articles/diy-audio-recording-booth/booth-build-4.webp'
+export const image5 = '/src/content/articles/diy-audio-recording-booth/booth-build-5.webp'
 
 <IntroText>
 
@@ -12,6 +20,60 @@ You may have read my article about making [a questionable recording booth out of
 
 </IntroText>
 
-I decided to create my own DIY recording booth, after watching a couple of convincing Youtube videos.
+I decided to create my own DIY recording booth, after watching a couple of convincing Youtube videos from [Les McDonald](https://www.youtube.com/watch?v=UTeUeRxAS7M) and [Media6D](https://www.youtube.com/watch?v=rWgLCPaOAzo), showcasing their easy, low-budget DIY solutions. Big thanks to you two for the inspiration!
 
-If you want to see how it turned out - I invite you to [read this Medium post](https://medium.com/@simonswiss/low-budget-dyi-audio-recording-booth-does-it-work-e861a6d99a4d)!
+I ordered a bunch of professional acoustic tiles on ebay, and bought a plastic storage container which seemed to fit the dimensions I was after.
+
+The plastic container cost me AU$ 14.99. There were some cheaper ones, but I liked the idea of a heavy duty plastic that won’t crack on first occasion.
+
+The acoustic tiles cost me AU$ 53.00 including shipping. I have **far too much of it**, but that’s the best deal I could find. Out of my 10-pack, I have 6 intact tiles + a lot of scraps form the cutouts left.
+
+Foam tiles are tricky to cut, and the best tool for the job was my good old rusty saw. After a few quick visual measurements, I started cutting into the foam.
+
+Here are a few shots from the build:
+
+<div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 not-prose">
+  <CaptionImage src={image1} alt="DIY recording booth creation" />
+  <CaptionImage src={image2} alt="DIY recording booth creation" />
+  <CaptionImage src={image3} alt="DIY recording booth creation" />
+  <CaptionImage src={image4} alt="DIY recording booth creation" />
+  <CaptionImage src={image5} alt="DIY recording booth creation" />
+</div>
+
+Looking pretty neat! The Blue Yeti fits right in.
+
+## So, does it work?
+
+I was keen to see how the booth performed, and to give it a fair test, I made sure I was not doing any effort to improve the room audio quality. I kept the door open, the blinds rolled up, the windows open. I wanted to **put the booth to the test against real life elements**.
+
+Here’s the video #4 of my [Jade/Pug Tips in 90 Seconds video series](https://www.youtube.com/watch?v=YQmjATWJhfQ&list=PLHrxuCR-0CcSWiMuLf58iuIsNlP549-Sk), recorded in the conditions described just above.
+
+<YouTubeVideo videoId="uK7yoq2gRRw" />
+
+Not bad, huh?
+
+As a comparison, here’s video #1, recorded in the same room, **with the same microphone**:
+
+<YouTubeVideo videoId="YQmjATWJhfQ" />
+
+I know which audio I prefer!
+
+---
+
+**Edit**: I have since re-done the Series Intro, because I couldn’t stand hearing that echo in my voice, and thought it could turn off a lot of people from watching the actual series.
+
+Here's the new intro:
+
+<YouTubeVideo videoId="JqCs1pdmf9o" />
+
+## So, Yeah, It Works
+
+In retrospect, it was well worth the little research, expenses and build. The quality of my audio recordings is greatly improved.
+
+It is probably not studio quality. I could also probably improve things a bit more by adding some additional foam tiles around me on the hard walls. But hey, this article is about a low budget DIY recording booth, not about turning your home into a recording studio.
+
+## Portable booth FTW
+
+An added benefit is that I have now a portable storage box for my Blue Yeti, USB cable and headphones. It has a lid that prevents dust from creeping in if I am not using the mic for a while. It fits under my desk. I can take it anywhere on the road.
+
+So, yeah. **It works**.
