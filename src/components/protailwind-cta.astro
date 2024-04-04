@@ -1,48 +1,44 @@
 ---
-import { Picture } from 'astro-imagetools/components'
+import { Image } from 'astro:assets'
+import corgis from '@/assets/images/corgi-avatar.png'
 ---
 
-<footer class="relative group hover:-translate-y-px transition">
+<footer class="group relative transition hover:-translate-y-px">
   <div
-    class="group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 origin-top-left transition duration-75 absolute inset-0 bg-purple-800/30 rounded-2xl"
+    class="absolute inset-0 origin-top-left rounded-2xl bg-purple-800/30 transition duration-75 group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2"
   >
   </div>
   <div
-    class="my-16 rounded-2xl shadow-purple-900/10 shadow-xl flex overflow-hidden ring ring-black relative hover:shadow-purple-900/20 hover:shadow-lg transition-all"
+    class="relative my-16 flex overflow-hidden rounded-2xl shadow-xl shadow-purple-900/10 ring ring-black transition-all hover:shadow-lg hover:shadow-purple-900/20"
   >
     <div
-      class="hidden md:block w-full max-w-[12rem] relative overflow-hidden border-r-[3px] border-black"
+      class="relative hidden w-full max-w-[12rem] overflow-hidden border-r-[3px] border-black md:block"
     >
-      <Picture
-        src="/src/images/corgi-avatar.png"
+      <Image
+        src={corgis}
         alt="illustration of the Pro Tailwind corgi mascot"
-        attributes={{
-          img: {
-            class: 'min-h-full absolute h-full object-cover origin-right',
-          },
-        }}
+        class="absolute h-full min-h-full origin-right object-cover"
       />
     </div>
-    <div class="bg-white p-8 grid place-items-center flex-1">
+    <div class="grid flex-1 place-items-center bg-white p-8">
       <div
-        class="md:hidden mx-auto mb-4 relative h-32 w-32 ring ring-black rounded-full overflow-hidden"
+        class="relative mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full ring ring-black md:hidden"
       >
-        <Picture
-          src="/src/images/corgi-avatar.png"
+        <Image
+          src={corgis}
           alt="illustration of the Pro Tailwind corgi mascot"
-          attributes={{
-            img: {
-              class: 'absolute h-full w-full inset-0 object-cover scale-110',
-            },
-          }}
+          class="absolute inset-0 h-full w-full scale-110 object-cover"
         />
       </div>
-      <div class="font-party prose prose-purple prose-lg xl:prose-xl mb-0 text-center md:text-left">
+      <div
+        class="prose prose-lg prose-purple mb-0 text-center font-party xl:prose-xl md:text-left"
+      >
         <slot>
           <p>
-            I'm building <a href="https://protailwind.com">Pro Tailwind</a>, an advanced-level
-            course on Tailwind CSS. We dig into techniques that scale up with your team. <a
-              href="https://protailwind.com">Sign up today!</a
+            I'm building <a href="https://protailwind.com">Pro Tailwind</a>, an
+            advanced-level course on Tailwind CSS. We dig into techniques that
+            scale up with your team. <a href="https://protailwind.com"
+              >Sign up today!</a
             >
           </p>
         </slot>

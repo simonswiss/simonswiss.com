@@ -1,16 +1,11 @@
 ---
-  title: 'Tailwind CSS v4: Multi-Theme Strategy'
-  description: "You’ve probably heard that a very alpha version of Tailwind CSS v4 has been open sourced. It’s not ready for production yet, but let's tale a look at how it simplifies setting up a multi-theme strategy."
-  pubDate: Mar 09 2024
+title: "Tailwind CSS v4: Multi-Theme Strategy"
+description: >-
+  You’ve probably heard that a very alpha version of Tailwind CSS v4 has been
+  open sourced. It’s not ready for production yet, but let's tale a look at how
+  it simplifies setting up a multi-theme strategy.
+pubDate: 2024-03-09
 ---
-
-import IntroText from '../../../components/intro-text.astro'
-import CaptionImage from '../../../components/caption-image.astro'
-
-export const theming1 = '/src/content/articles/tailwind-v4-multi-theme/theming-1.png'
-export const theming2 = '/src/content/articles/tailwind-v4-multi-theme/theming-2.png'
-export const theming3 = '/src/content/articles/tailwind-v4-multi-theme/theming-3.png'
-export const theming4 = '/src/content/articles/tailwind-v4-multi-theme/theming-4.png'
 
 <IntroText>
   You’ve probably heard that a very alpha version of Tailwind CSS v4 [has been open sourced](https://tailwindcss.com/blog/tailwindcss-v4-alpha).
@@ -119,7 +114,10 @@ You can redefine this variable value at different theme scopes like so:
 
 And that’s all you need to apply themable classes to your HTML:
 
-<CaptionImage src={theming1} alt="Minimal theming strategy in Tailwind v4">
+<CaptionImage
+  src="/src/assets/images/articles/tailwind-v4-multi-theme/theming-1.png"
+  alt="Minimal theming strategy in Tailwind v4"
+>
   Minimal theming strategy in Tailwind v4
 </CaptionImage>
 
@@ -127,8 +125,12 @@ And that’s all you need to apply themable classes to your HTML:
 
 Well, using the `bg-primary` class directly would retrieve the actual HEX color defined in the `@theme` block:
 
-<CaptionImage src={theming2} alt="CSS class hover showing the HEX value consumption">
-  Utilities generated from the `@theme` block will consume the actual color value defined.
+<CaptionImage
+  src="/src/assets/images/articles/tailwind-v4-multi-theme/theming-2.png"
+  alt="CSS class hover showing the HEX value consumption"
+>
+  Utilities generated from the `@theme` block will consume the actual color
+  value defined.
 </CaptionImage>
 
 If you want to use “normal” utility classes like `bg-primary` directly, you can go an extra step:
@@ -137,7 +139,10 @@ If you want to use “normal” utility classes like `bg-primary` directly, you 
 
 You can define _another_ CSS variable which will be consumed by the `@theme` theme variable:
 
-<CaptionImage src={theming3} alt="Advanced theming setup">
+<CaptionImage
+  src="/src/assets/images/articles/tailwind-v4-multi-theme/theming-3.png"
+  alt="Advanced theming setup"
+>
   Theming setup to support `bg-primary` directly
 </CaptionImage>
 
@@ -149,7 +154,7 @@ Did you notice we didn’t have to _construct_ an `rgb()` color composed with th
 
 Opacity support straight up works with HEX or any other color format, because Tailwind CSS v4 is using [`color-mix()`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to compose the opacity:
 
-<CaptionImage src={theming4} alt="Opacity support without alpha-value">
+<CaptionImage src="/src/assets/images/articles/tailwind-v4-multi-theme/theming-4.png" alt="Opacity support without alpha-value">
   Opacity support without using Tailwind's internal `<alpha-value>`.
 </CaptionImage>
 

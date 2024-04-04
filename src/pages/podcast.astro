@@ -1,8 +1,8 @@
 ---
-import PageLayout from '~layouts/page.astro'
-import IntroText from '~components/intro-text.astro'
-import YouTubeVideo from '~components/youtube-video.astro'
-import ProtailwindCta from '~components/protailwind-cta.astro'
+import PageLayout from '@layouts/page.astro'
+import IntroText from '@components/intro-text.astro'
+import YouTubeVideo from '@components/youtube-video.astro'
+import ProtailwindCta from '@components/protailwind-cta.astro'
 ---
 
 <PageLayout
@@ -12,22 +12,24 @@ import ProtailwindCta from '~components/protailwind-cta.astro'
   gradientStart="from-blue-400"
   gradientEnd="to-emerald-500"
 >
-  <div class="pt-10 mx-auto max-w-3xl">
+  <div class="mx-auto max-w-3xl pt-10">
     <IntroText>
-      The NavBar is a podcast by Jon Meyers and Simon Vrachliotis, covering all things web
-      development and content creation.
+      The NavBar is a podcast by Jon Meyers and Simon Vrachliotis, covering all
+      things web development and content creation.
     </IntroText>
 
     <YouTubeVideo id="pdFqdgYk8jA" />
 
-    <div class="prose prose-purple max-w-none pt-10 pb-8 lg:prose-lg xl:prose-xl">
+    <div
+      class="prose prose-purple max-w-none pb-8 pt-10 lg:prose-lg xl:prose-xl"
+    >
       <p>
-        Watch our shows on <a href="https://www.youtube.com/@navbar8999">YouTube</a> and check out <a
-          href="https://navbar.tech">The NavBar website</a
-        >!
+        Watch our shows on <a href="https://www.youtube.com/@navbar8999"
+          >YouTube</a
+        > and check out <a href="https://navbar.tech">The NavBar website</a>!
       </p>
     </div>
-    <hr class="ml-0 mb-4 w-16 border-2 border-t border-gray-300" />
+    <hr class="mb-4 ml-0 w-16 border-2 border-t border-gray-300" />
     <ProtailwindCta />
   </div>
 </PageLayout>

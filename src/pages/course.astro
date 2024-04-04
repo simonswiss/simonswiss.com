@@ -1,10 +1,10 @@
 ---
 import { Picture } from 'astro-imagetools/components'
 
-import PageLayout from '~layouts/page.astro'
-import IntroText from '~components/intro-text.astro'
-import CaptionImage from '~components/caption-image.astro'
-import ProtailwindCta from '~components/protailwind-cta.astro'
+import PageLayout from '@layouts/page.astro'
+import IntroText from '@components/intro-text.astro'
+import CaptionImage from '@components/caption-image.astro'
+import ProtailwindCta from '@components/protailwind-cta.astro'
 ---
 
 <PageLayout
@@ -14,45 +14,50 @@ import ProtailwindCta from '~components/protailwind-cta.astro'
   gradientStart="from-teal-400"
   gradientEnd="to-sky-500"
 >
-  <div class="pt-10 mx-auto max-w-3xl">
+  <div class="mx-auto max-w-3xl pt-10">
     <IntroText>
-      I'm building Pro Tailwind, a course that dives into advanced-level Tailwind CSS concepts and
-      patterns.
+      I'm building Pro Tailwind, a course that dives into advanced-level
+      Tailwind CSS concepts and patterns.
       <br />
       <br />
     </IntroText>
 
     <a href="https://protailwind.com">
       <CaptionImage
-        src="/src/images/protailwind.png"
+        src="@/assets/images/protailwind.png"
         alt="Illustration of Flex the corgi, the Pro Tailwind mascot, surfing a wave while wearing sunglasses."
       />
     </a>
 
-    <div class="prose prose-purple max-w-none pt-10 pb-8 lg:prose-lg xl:prose-xl">
+    <div
+      class="prose prose-purple max-w-none pb-8 pt-10 lg:prose-lg xl:prose-xl"
+    >
       <p>
-        Pro Tailwind skips most of the beginner topics and focuses techniques can that scale with
-        your team.
+        Pro Tailwind skips most of the beginner topics and focuses techniques
+        can that scale with your team.
       </p>
 
       <h2>Together, we will:</h2>
       <ul>
         <li>
-          Deconstruct some the most visually interesting parts of the UI, triggering those “think
-          outside the box” muscles in the process.
+          Deconstruct some the most visually interesting parts of the UI,
+          triggering those “think outside the box” muscles in the process.
         </li>
         <li>
-          Add support for multiple color themes, combining the superpowers of CSS variables and the
-          Tailwind Plugin API.
+          Add support for multiple color themes, combining the superpowers of
+          CSS variables and the Tailwind Plugin API.
         </li>
         <li>
-          Isolate and compose styling concerns to support multiple style variant combinations for a
-          given UI component
+          Isolate and compose styling concerns to support multiple style variant
+          combinations for a given UI component
         </li>
-        <li>Share and consume the same UI components across multiple, unrelated projects</li>
+        <li>
+          Share and consume the same UI components across multiple, unrelated
+          projects
+        </li>
       </ul>
     </div>
-    <hr class="ml-0 mb-4 w-16 border-2 border-t border-gray-300" />
+    <hr class="mb-4 ml-0 w-16 border-2 border-t border-gray-300" />
     <ProtailwindCta>
       <p>
         Sign up to day at <a href="https://protailwind.com">ProTailwind.com</a> ✨

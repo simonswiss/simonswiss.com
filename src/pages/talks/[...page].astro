@@ -1,14 +1,15 @@
 ---
 import { getCollection } from 'astro:content'
-import PageLayout from '~layouts/page.astro'
-import List from '~components/list.astro'
-import Pagination from '~components/pagination.astro'
-import { PAGINATION_COUNT } from '~/config'
+import PageLayout from '@layouts/page.astro'
+import List from '@components/list.astro'
+import Pagination from '@components/pagination.astro'
+import { PAGINATION_COUNT } from '@/config'
 
 export async function getStaticPaths({ paginate }: any) {
   const talks = await getCollection('talks')
   const items = talks.sort(
-    (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
   )
   return paginate(items, { pageSize: PAGINATION_COUNT })
 }

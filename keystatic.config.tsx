@@ -1,5 +1,4 @@
-import { collection, config, fields } from '@keystatic/core'
-import { __experimental_mdx_field } from '@keystatic/core/form/fields/markdoc'
+import { collection, config, fields, singleton } from '@keystatic/core'
 
 import {
   YouTubeVideo,
@@ -35,6 +34,16 @@ export default config({
       ),
     },
   },
+  singletons: {
+    homepage: singleton({
+      label: 'Homepage',
+      path: 'src/content/homepage/index',
+      schema: {
+        title: fields.text({ label: 'Title' }),
+        description: fields.text({ label: 'Description', multiline: true }),
+      },
+    }),
+  },
   collections: {
     articles: collection({
       label: 'Articles',
@@ -47,7 +56,7 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         description: fields.text({ label: 'Description', multiline: true }),
         pubDate: fields.date({ label: 'Pub Date' }),
-        content: __experimental_mdx_field({
+        content: fields.mdx({
           label: 'Content',
           components: {
             YouTubeVideo,
@@ -71,7 +80,7 @@ export default config({
         description: fields.text({ label: 'Description', multiline: true }),
         pubDate: fields.date({ label: 'Pub Date' }),
         thumbnail: fields.text({ label: 'Thumbnail URL' }),
-        content: __experimental_mdx_field({
+        content: fields.mdx({
           label: 'Content',
           components: {
             YouTubeVideo,
@@ -94,7 +103,7 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         description: fields.text({ label: 'Description', multiline: true }),
         pubDate: fields.date({ label: 'Pub Date' }),
-        content: __experimental_mdx_field({
+        content: fields.mdx({
           label: 'Content',
           components: {
             YouTubeVideo,
