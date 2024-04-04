@@ -10,7 +10,10 @@ import {
 
 export default config({
   storage: {
-    kind: 'local',
+    kind: process.env.NODE_ENV === 'production' ? 'cloud' : 'local',
+  },
+  cloud: {
+    project: 'simonswiss/simonswiss-website',
   },
   ui: {
     brand: {
