@@ -1,18 +1,8 @@
 ---
 title: DIY Audio Recording Booth - Does it Work?
 description: I decided to create my own DIY recording booth, after watching a couple of convincing Youtube videos. Was that worth the time and effort?
-pubDate: May 13 2016
+pubDate: '2016-05-13'
 ---
-
-import IntroText from '~components/intro-text.astro'
-import YouTubeVideo from '~components/youtube-video.astro'
-import CaptionImage from '~components/caption-image.astro'
-
-export const image1 = '/src/content/articles/diy-audio-recording-booth/booth-build-1.webp'
-export const image2 = '/src/content/articles/diy-audio-recording-booth/booth-build-2.webp'
-export const image3 = '/src/content/articles/diy-audio-recording-booth/booth-build-3.webp'
-export const image4 = '/src/content/articles/diy-audio-recording-booth/booth-build-4.webp'
-export const image5 = '/src/content/articles/diy-audio-recording-booth/booth-build-5.webp'
 
 <IntroText>
 
@@ -32,13 +22,26 @@ Foam tiles are tricky to cut, and the best tool for the job was my good old rust
 
 Here are a few shots from the build:
 
-<div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 not-prose">
-  <CaptionImage src={image1} alt="DIY recording booth creation" />
-  <CaptionImage src={image2} alt="DIY recording booth creation" />
-  <CaptionImage src={image3} alt="DIY recording booth creation" />
-  <CaptionImage src={image4} alt="DIY recording booth creation" />
-  <CaptionImage src={image5} alt="DIY recording booth creation" />
-</div>
+<CaptionImage
+  src="/src/assets/images/articles/diy-audio-recording-booth/booth-build-1.webp"
+  alt="DIY recording booth creation"
+/>
+<CaptionImage
+  src="/src/assets/images/articles/diy-audio-recording-booth/booth-build-2.webp"
+  alt="DIY recording booth creation"
+/>
+<CaptionImage
+  src="/src/assets/images/articles/diy-audio-recording-booth/booth-build-3.webp"
+  alt="DIY recording booth creation"
+/>
+<CaptionImage
+  src="/src/assets/images/articles/diy-audio-recording-booth/booth-build-4.webp"
+  alt="DIY recording booth creation"
+/>
+<CaptionImage
+  src="/src/assets/images/articles/diy-audio-recording-booth/booth-build-5.webp"
+  alt="DIY recording booth creation"
+/>
 
 Looking pretty neat! The Blue Yeti fits right in.
 
@@ -48,13 +51,13 @@ I was keen to see how the booth performed, and to give it a fair test, I made su
 
 Here’s the video #4 of my [Jade/Pug Tips in 90 Seconds video series](https://www.youtube.com/watch?v=YQmjATWJhfQ&list=PLHrxuCR-0CcSWiMuLf58iuIsNlP549-Sk), recorded in the conditions described just above.
 
-<YouTubeVideo videoId="uK7yoq2gRRw" />
+<YouTubeVideo id="uK7yoq2gRRw" />
 
 Not bad, huh?
 
 As a comparison, here’s video #1, recorded in the same room, **with the same microphone**:
 
-<YouTubeVideo videoId="YQmjATWJhfQ" />
+<YouTubeVideo id="YQmjATWJhfQ" />
 
 I know which audio I prefer!
 
@@ -64,7 +67,7 @@ I know which audio I prefer!
 
 Here's the new intro:
 
-<YouTubeVideo videoId="JqCs1pdmf9o" />
+<YouTubeVideo id="JqCs1pdmf9o" />
 
 ## So, Yeah, It Works
 

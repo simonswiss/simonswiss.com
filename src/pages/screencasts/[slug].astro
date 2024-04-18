@@ -2,8 +2,14 @@
 import { getCollection, getEntryBySlug } from 'astro:content'
 import tinytime from 'tinytime'
 
-import PageLayout from '~layouts/page.astro'
-import ProtailwindCta from '~components/protailwind-cta.astro'
+import YouTubeVideo from '@components/youtube-video.astro'
+import VimeoVideo from '@components/vimeo-video.astro'
+import CaptionImage from '@components/caption-image.astro'
+import IntroText from '@components/intro-text.astro'
+import Tweet from '@components/tweet.astro'
+
+import PageLayout from '@layouts/page.astro'
+import ProtailwindCta from '@components/protailwind-cta.astro'
 
 const postDateTemplate = tinytime('{dddd}, {MMMM} {DD}, {YYYY}')
 
@@ -21,7 +27,8 @@ const { Content } = await screencast.render()
 export async function getStaticPaths() {
   const screencasts = await getCollection('screencasts')
   const sortedScreencasts = screencasts.sort(
-    (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
   )
   return sortedScreencasts.map((screencast) => ({
     params: {
@@ -40,24 +47,41 @@ export async function getStaticPaths() {
   <article>
     <div class="mx-auto max-w-3xl">
       <div class="xl:col-span-3 xl:row-span-2 xl:pb-0">
-        <div class="prose prose-purple max-w-none pb-8 pt-10 lg:prose-lg xl:prose-xl">
+        <div
+          class="prose prose-purple max-w-none pb-8 pt-10 lg:prose-lg xl:prose-xl"
+        >
           <dl class="space-y-10">
             <div>
               <dt class="sr-only">Published on</dt>
-              <dd class="font-party text-base font-medium leading-6 text-gray-500">
+              <dd
+                class="font-party text-base font-medium leading-6 text-gray-500"
+              >
                 <time datetime={screencast.data.pubDate}
-                  >{postDateTemplate.render(new Date(screencast.data.pubDate))}</time
+                  >{
+                    postDateTemplate.render(new Date(screencast.data.pubDate))
+                  }</time
                 >
               </dd>
             </div>
           </dl>
-          <Content />
+          <Content
+            components={{
+              YouTubeVideo,
+              CaptionImage,
+              IntroText,
+              VimeoVideo,
+              Tweet,
+            }}
+          />
         </div>
         <hr class="mb-4 ml-0 w-16 border-2 border-t border-gray-300" />
         <ProtailwindCta />
       </div>
 
-      <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+      <script
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"></script>
     </div>
   </article>
 </PageLayout>

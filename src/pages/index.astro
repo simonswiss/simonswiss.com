@@ -1,20 +1,28 @@
 ---
-import { Picture } from 'astro-imagetools/components'
+import { getEntry } from 'astro:content'
+import { Image } from 'astro:assets'
 
-import Layout from '~layouts/base.astro'
-import Logo from '~components/logo.astro'
-import Navigation from '~components/navigation.astro'
-import Footer from '~components/footer.astro'
+import Layout from '@layouts/base.astro'
+import Logo from '@components/logo.astro'
+import Navigation from '@components/navigation.astro'
+import Footer from '@components/footer.astro'
 
-import TwitterIcon from '~components/icons/twitter.astro'
-import YouTubeIcon from '~components/icons/youtube.astro'
-import GitHubIcon from '~components/icons/github.astro'
+import TwitterIcon from '@components/icons/twitter.astro'
+import YouTubeIcon from '@components/icons/youtube.astro'
+import GitHubIcon from '@components/icons/github.astro'
 
-const title = 'simonswiss | Web designer, developer & content creator'
-const description = 'Swiss front end designer and developer based in Sydney, Australia.'
+import avatar from '@/assets/images/new-avatar.png'
+import corgis from '@/assets/images/corgi-avatar.png'
+
+const homepageContent = await getEntry('homepage', 'index')
+if (!homepageContent) throw new Error('No homepage content found')
+
+const seoTitle = 'simonswiss | Web designer, developer & content creator'
+const seoDescription =
+  'Swiss front end designer and developer based in Sydney, Australia.'
 ---
 
-<Layout title={title} description={description}>
+<Layout title={seoTitle} description={seoDescription}>
   <div class="bg-gradient-to-br from-rose-500 to-fuchsia-500">
     <div
       class="space-between mx-auto flex min-h-screen max-w-4xl flex-col px-4 sm:px-8 lg:max-w-5xl"
@@ -28,85 +36,80 @@ const description = 'Swiss front end designer and developer based in Sydney, Aus
           class="flex flex-col justify-between space-y-12 text-rose-100 md:flex-row md:items-center md:space-x-8 md:space-y-0"
         >
           <div class="space-y-6 font-party md:space-y-8">
-            <p class="text-5xl leading-none md:text-7xl">Hi, my name is Simon.</p>
-            <h1 class="text-3xl font-medium leading-snug text-pretty">
-              I'm a hybrid designer, developer, video editor and content creator with an optimistic
-              and enthusiastic approach to life!
+            <p class="text-5xl leading-none md:text-7xl">
+              {homepageContent.data.title}
+            </p>
+            <h1 class="text-pretty text-3xl font-medium leading-snug">
+              {homepageContent.data.description}
             </h1>
             <ul class="flex gap-8">
               <li>
                 <a href="https://twitter.com/simonswiss">
                   <span class="sr-only">Twitter</span>
-                  <TwitterIcon class="h-8 w-8 hover:-rotate-6 hover:scale-150 transition hover:text-black" />
+                  <TwitterIcon
+                    class="h-8 w-8 transition hover:-rotate-6 hover:scale-150 hover:text-black"
+                  />
                 </a>
               </li>
               <li>
                 <a href="https://youtube.com/@simonswiss">
                   <span class="sr-only">YouTube</span>
-                  <YouTubeIcon class="h-8 w-8 hover:rotate-6 hover:scale-150 transition hover:text-black" />
+                  <YouTubeIcon
+                    class="h-8 w-8 transition hover:rotate-6 hover:scale-150 hover:text-black"
+                  />
                 </a>
               </li>
               <li>
                 <a href="https://github.com/simonswiss">
                   <span class="sr-only">GitHub</span>
-                  <GitHubIcon class="h-8 w-8 hover:-rotate-6 hover:scale-150 transition hover:text-black" />
+                  <GitHubIcon
+                    class="h-8 w-8 transition hover:-rotate-6 hover:scale-150 hover:text-black"
+                  />
                 </a>
               </li>
             </ul>
           </div>
-          <div class="flex-shrink-0 group">
-            <Picture
-              src="/new-avatar.png"
+          <div class="group flex-shrink-0">
+            <Image
+              src={avatar}
               alt="simonswiss mugshot"
-              attributes={{
-                img: {
-                  class:
-                    'ring-[1rem] ring-white/10 rounded-full h-40 w-40 -rotate-12 transform transition group-hover:rotate-0 md:h-52 md:w-52',
-                },
-              }}
+              class="h-40 w-40 -rotate-12 transform rounded-full ring-[1rem] ring-white/10 transition group-hover:rotate-0 md:h-52 md:w-52"
             />
           </div>
         </div>
 
-        <div class="relative group max-w-2xl hover:-translate-y-px transition">
+        <div class="group relative max-w-2xl transition hover:-translate-y-px">
           <div
-            class="group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 origin-top-left transition duration-75 absolute inset-0 bg-black/30 rounded-2xl"
+            class="absolute inset-0 origin-top-left rounded-2xl bg-black/30 transition duration-75 group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2"
           >
           </div>
           <div
-            class="mt-16 mb-24 rounded-2xl shadow-purple-900/10 shadow-xl flex overflow-hidden ring ring-black relative hover:shadow-purple-900/20 hover:shadow-lg transition-all"
+            class="relative mb-24 mt-16 flex overflow-hidden rounded-2xl shadow-xl shadow-purple-900/10 ring ring-black transition-all hover:shadow-lg hover:shadow-purple-900/20"
           >
             <div
-              class="hidden md:block w-full max-w-[12rem] relative overflow-hidden border-r-[3px] border-black"
+              class="relative hidden w-full max-w-[12rem] overflow-hidden border-r-[3px] border-black md:block"
             >
-              <Picture
-                src="/src/images/corgi-avatar.png"
+              <Image
+                src={corgis}
                 alt="illustration of the Pro Tailwind corgi mascot"
-                attributes={{
-                  img: {
-                    class: 'min-h-full absolute h-full object-cover origin-right',
-                  },
-                }}
+                class="absolute h-full min-h-full origin-right object-cover"
               />
             </div>
-            <div class="relative p-8 grid items-center bg-white">
+            <div class="relative grid items-center bg-white p-8">
               <div
-                class="md:hidden mb-4 relative h-32 w-32 ring ring-black rounded-full overflow-hidden"
+                class="relative mb-4 h-32 w-32 overflow-hidden rounded-full ring ring-black md:hidden"
               >
-                <Picture
-                  src="/src/images/corgi-avatar.png"
+                <Image
+                  src={corgis}
                   alt="illustration of the Pro Tailwind corgi mascot"
-                  attributes={{
-                    img: {
-                      class: 'absolute h-full w-full inset-0 object-cover scale-110',
-                    },
-                  }}
+                  class="absolute inset-0 h-full w-full scale-110 object-cover"
                 />
               </div>
-              <p class="prose prose-pink prose-lg mb-0 font-party">
-                I'm building <a href="https://protailwind.com">Pro Tailwind</a>, an advanced-level
-                course on Tailwind CSS. We dig into techniques that scale up with your team. <a
-                  href="https://protailwind.com">Sign up today!</a
+              <p class="prose prose-lg prose-pink mb-0 font-party">
+                I'm building <a href="https://protailwind.com">Pro Tailwind</a>,
+                an advanced-level course on Tailwind CSS. We dig into techniques
+                that scale up with your team. <a href="https://protailwind.com"
+                  >Sign up today!</a
                 >
               </p>
             </div>

@@ -1,19 +1,16 @@
 ---
 title: 'My Very First Screencast: Taking The Leap.'
-description: I am a self-taught front-end developer. I owe a large portion of what I know to some incredible individuals who took the time to create video tutorials — paid or free — and make them available to the world.
-pubDate: May 3 2016
+description: >-
+  I am a self-taught front-end developer. I owe a large portion of what I know
+  to some incredible individuals who took the time to create video tutorials —
+  paid or free — and make them available to the world.
+pubDate: 2016-05-03
 ---
 
-import IntroText from '../../../components/intro-text.astro'
-import YouTubeVideo from '../../../components/youtube-video.astro'
-import CaptionImage from '../../../components/caption-image.astro'
-
-export const wardrobe = '/src/content/articles/my-very-first-screencast/_wardrobe-booth.jpg'
-
 <IntroText>
-
-I am a self-taught front-end developer. I owe a large portion of what I know to some incredible individuals who took the time to create video tutorials — paid or free — and make them available to the world.
-
+  I am a self-taught front-end developer. I owe a large portion of what I know
+  to some incredible individuals who took the time to create video tutorials —
+  paid or free — and make them available to the world.
 </IntroText>
 
 Before working in front-end, I was a primary school teacher. I always loved teaching, and still very much enjoy doing code mentoring with colleagues and clients.
@@ -74,7 +71,10 @@ I don’t have a proper wardrobe anymore, but I got a mean towel rack that, enha
 
 Here’s what it looked like. Yes, I zipped the two hoodies together to the top and ducked my head under there.
 
-<CaptionImage src={wardrobe} alt="Wardrobe recording booth">
+<CaptionImage
+  src="/src/assets/images/articles/my-very-first-screencast/_wardrobe-booth.jpg"
+  alt="Wardrobe recording booth"
+>
   The dodgy, "don't try this at home" recording booth.
 </CaptionImage>
 
