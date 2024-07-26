@@ -18,8 +18,7 @@ const homepageContent = await getEntry('homepage', 'index')
 if (!homepageContent) throw new Error('No homepage content found')
 
 const seoTitle = 'simonswiss | Web designer, developer & content creator'
-const seoDescription =
-  'Swiss front end designer and developer based in Sydney, Australia.'
+const seoDescription = 'Swiss front end designer and developer based in Sydney, Australia.'
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -31,7 +30,7 @@ const seoDescription =
         <Logo />
         <Navigation />
       </div>
-      <div class="sm:flex-1 sm:pt-24">
+      <div class="pt-12 sm:flex-1 sm:pt-24">
         <div
           class="flex flex-col justify-between space-y-12 text-rose-100 md:flex-row md:items-center md:space-x-8 md:space-y-0"
         >
@@ -42,6 +41,14 @@ const seoDescription =
             <h1 class="text-pretty text-3xl font-medium leading-snug">
               {homepageContent.data.description}
             </h1>
+            <p class="text-pretty text-3xl font-medium leading-snug">
+              I teach web dev stuff on <a
+                class="underline hover:no-underline"
+                href="https://www.epicweb.dev/workshops/pixel-perfect-figma-to-tailwind">Epic Web</a
+              > and <a class="underline hover:no-underline" href="https://protailwind.com"
+                >Pro Tailwind</a
+              >.
+            </p>
             <ul class="flex gap-8">
               <li>
                 <a href="https://twitter.com/simonswiss">
@@ -106,10 +113,9 @@ const seoDescription =
                 />
               </div>
               <p class="prose prose-lg prose-pink mb-0 font-party">
-                I'm building <a href="https://protailwind.com">Pro Tailwind</a>,
-                an advanced-level course on Tailwind CSS. We dig into techniques
-                that scale up with your team. <a href="https://protailwind.com"
-                  >Sign up today!</a
+                I'm building <a href="https://protailwind.com">Pro Tailwind</a>, an advanced-level
+                course on Tailwind CSS. We dig into techniques that scale up with your team. <a
+                  href="https://protailwind.com">Sign up today!</a
                 >
               </p>
             </div>

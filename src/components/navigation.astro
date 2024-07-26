@@ -4,27 +4,33 @@ const navLinks = [
   { name: 'Screencasts', path: '/screencasts' },
   { name: 'Articles', path: '/articles' },
   { name: 'Talks', path: '/talks' },
-  { name: 'Course', path: 'https://protailwind.com' },
+  { name: 'Pro Tailwind', path: 'https://protailwind.com', highlight: true },
+  {
+    name: 'Epic Web 🚀',
+    path: 'https://www.epicweb.dev/workshops/pixel-perfect-figma-to-tailwind',
+    highlight: true,
+  },
 ]
 
 function cx(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-const courseLinkClasses = 'rounded-[1px] bg-cyan-300 px-3 py-0.5 text-cyan-900 shadow-xl shadow-pink-100/30 ring-2 ring-cyan-200 transition hover:scale-105 hover:bg-yellow-300 hover:text-yellow-800 hover:ring-yellow-200' 
+const highlightLinkClasses =
+  'rounded-[1px] bg-cyan-300 px-3 py-0.5 text-cyan-900 shadow-xl shadow-pink-100/30 ring-2 ring-cyan-200 transition hover:scale-105 hover:bg-yellow-300 hover:text-yellow-800 hover:ring-yellow-200'
 
 const regularLinkClasses = 'bg-white text-rose-900 shadow-md'
 ---
 
-<nav>
+<nav class="flex flex-wrap gap-4 sm:gap-6 md:gap-x-10">
   {
     navLinks.map((link, index) => (
       <a
         href={link.path}
         class={cx(
-          'font-party mr-4 mt-4 inline-block px-2 font-semibold hover:rotate-0 sm:mr-12 sm:text-xl md:mt-0',
+          'inline-block px-2 font-party font-semibold hover:rotate-0 sm:text-xl md:mt-0',
           index % 2 === 0 ? 'rotate-3' : '-rotate-3',
-          link.path === 'https://protailwind.com' ? courseLinkClasses : regularLinkClasses
+          link.highlight ? highlightLinkClasses : regularLinkClasses
         )}
       >
         {link.name}
