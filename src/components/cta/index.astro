@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets'
+import { type ImageMetadata } from 'astro'
+
+type Props = {
+  href: string
+  image: ImageMetadata
+  proseClass?: 'prose-blue' | 'prose-pink'
+  align?: 'left' | 'center'
+}
+
+const { href, image, proseClass = 'prose-pink', align = 'center' } = Astro.props as Props
+---
+
+<div class="group relative max-w-2xl transition hover:-translate-y-px">
+  <!-- Shadow element -->
+  <div
+    class="absolute inset-0 origin-top-left rounded-2xl bg-black/30 transition duration-75 group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2"
+  >
+  </div>
+  <div
+    class="relative flex overflow-hidden rounded-2xl shadow-xl shadow-purple-900/10 ring ring-black transition-all hover:shadow-lg hover:shadow-purple-900/20"
+  >
+    <div
+      class="relative hidden w-full max-w-[12rem] overflow-hidden border-r-[3px] border-black md:block"
+    >
+      <Image
+        src={image}
+        alt="illustration of the Pro Tailwind corgi mascot"
+        class="absolute h-full min-h-full origin-right object-cover"
+      />
+    </div>
+    <div
+      class:list={[
+        'relative grid flex-1 items-center bg-white p-8',
+        align === 'center' ? 'place-items-center' : 'items-center',
+      ]}
+    >
+      <div class="relative mb-4 h-32 w-32 overflow-hidden rounded-full ring ring-black md:hidden">
+        <Image
+          src={image}
+          alt="illustration of the Pro Tailwind corgi mascot"
+          class="absolute inset-0 h-full w-full scale-110 object-cover"
+        />
+      </div>
+      <p
+        class:list={[
+          'prose prose-lg prose-blue mb-0 font-party [&_a]:relative [&_a]:z-20',
+          proseClass,
+          align === 'center' && 'text-center md:text-left',
+        ]}
+      >
+        <slot />
+      </p>
+    </div>
+    <a href={href} class="absolute inset-0 z-10"></a>
+  </div>
+</div>

@@ -5,14 +5,15 @@ import PageLayout from '@layouts/page.astro'
 import List from '@components/list.astro'
 import Pagination from '@components/pagination.astro'
 import { PAGINATION_COUNT } from '@/config'
+import Courses from '@components/cta/courses.astro'
+import type { GetStaticPathsOptions } from 'astro'
 
 const { page } = Astro.props
 
-export async function getStaticPaths({ paginate }: any) {
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const articles = await getCollection('articles')
   const sortedArticles = articles.sort(
-    (a, b) =>
-      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
+    (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   )
   return paginate(sortedArticles, { pageSize: PAGINATION_COUNT })
 }
@@ -27,5 +28,6 @@ export async function getStaticPaths({ paginate }: any) {
   <div class="mx-auto max-w-3xl">
     <List items={page.data} />
     <Pagination page={page} />
+    <Courses />
   </div>
 </PageLayout>

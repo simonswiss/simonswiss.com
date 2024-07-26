@@ -1,0 +1,11 @@
+---
+import Cta from './index.astro'
+import epicWebLogo from '@/assets/images/epic-web-logo-color.png'
+
+import { EPIC_WEB_URL } from '@config'
+---
+
+<Cta image={epicWebLogo} href={EPIC_WEB_URL} proseClass="prose-blue" align="left">
+  I've teamed up with <a href="https://twitter.com/kentcdodds">Kent C. Dodds</a> to teach Tailwind CSS
+  (among other) as a partner instructor on the <a href={EPIC_WEB_URL}>Epic Web</a> platform!
+</Cta>

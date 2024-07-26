@@ -11,20 +11,14 @@ export interface Props {
 const { src, alt = '', class: tweaks = '' } = Astro.props as Props
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/**/*.{jpeg,jpg,png,gif,webp}',
+  '/src/assets/**/*.{jpeg,jpg,png,gif,webp}'
 )
 if (!images[src])
-  throw new Error(
-    `"${src}" does not exist in glob: "/src/assets/**/*.{jpeg,jpg,png,gif,webp}"`,
-  )
+  throw new Error(`"${src}" does not exist in glob: "/src/assets/**/*.{jpeg,jpg,png,gif,webp}"`)
 ---
 
 <figure class="not-prose">
-  <Image
-    src={images[src]()}
-    alt={alt}
-    class:list={['rounded-lg shadow-lg', tweaks]}
-  />
+  <Image src={images[src]()} alt={alt} class:list={['rounded-lg shadow-lg', tweaks]} />
   <figcaption class="mt-4 text-base text-gray-500">
     <slot />
   </figcaption>

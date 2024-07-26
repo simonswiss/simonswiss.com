@@ -12,7 +12,8 @@ import YouTubeIcon from '@components/icons/youtube.astro'
 import GitHubIcon from '@components/icons/github.astro'
 
 import avatar from '@/assets/images/new-avatar.png'
-import corgis from '@/assets/images/corgi-avatar.png'
+import ProTailwindCta from '@components/cta/pro-tailwind.astro'
+import EpicWebCta from '@components/cta/epic-web.astro'
 
 const homepageContent = await getEntry('homepage', 'index')
 if (!homepageContent) throw new Error('No homepage content found')
@@ -30,7 +31,7 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
         <Logo />
         <Navigation />
       </div>
-      <div class="pt-12 sm:flex-1 sm:pt-24">
+      <div class="pt-12 sm:flex-1">
         <div
           class="flex flex-col justify-between space-y-12 text-rose-100 md:flex-row md:items-center md:space-x-8 md:space-y-0"
         >
@@ -85,45 +86,12 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
           </div>
         </div>
 
-        <div class="group relative max-w-2xl transition hover:-translate-y-px">
-          <div
-            class="absolute inset-0 origin-top-left rounded-2xl bg-black/30 transition duration-75 group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2"
-          >
-          </div>
-          <div
-            class="relative mb-24 mt-16 flex overflow-hidden rounded-2xl shadow-xl shadow-purple-900/10 ring ring-black transition-all hover:shadow-lg hover:shadow-purple-900/20"
-          >
-            <div
-              class="relative hidden w-full max-w-[12rem] overflow-hidden border-r-[3px] border-black md:block"
-            >
-              <Image
-                src={corgis}
-                alt="illustration of the Pro Tailwind corgi mascot"
-                class="absolute h-full min-h-full origin-right object-cover"
-              />
-            </div>
-            <div class="relative grid items-center bg-white p-8">
-              <div
-                class="relative mb-4 h-32 w-32 overflow-hidden rounded-full ring ring-black md:hidden"
-              >
-                <Image
-                  src={corgis}
-                  alt="illustration of the Pro Tailwind corgi mascot"
-                  class="absolute inset-0 h-full w-full scale-110 object-cover"
-                />
-              </div>
-              <p class="prose prose-lg prose-pink mb-0 font-party">
-                I'm building <a href="https://protailwind.com">Pro Tailwind</a>, an advanced-level
-                course on Tailwind CSS. We dig into techniques that scale up with your team. <a
-                  href="https://protailwind.com">Sign up today!</a
-                >
-              </p>
-            </div>
-            <a href="https://protailwind.com" class="absolute inset-0 z-10"></a>
-          </div>
+        <div class="grid gap-8 pb-6 pt-12">
+          <EpicWebCta />
+          <ProTailwindCta />
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   </div>
 </Layout>
