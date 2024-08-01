@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets'
+import protailwindCorgi from '../assets/images/corgi-avatar.png'
+
 const navLinks = [
   {
     name: 'Epic Web 🚀',
@@ -17,7 +20,7 @@ function cx(...classes: string[]) {
 }
 
 const highlightLinkClasses =
-  'rounded-[1px] bg-cyan-300 px-3 py-0.5 text-cyan-900 shadow-xl shadow-pink-100/30 ring-2 ring-cyan-200 transition hover:scale-105 hover:bg-yellow-300 hover:text-yellow-800 hover:ring-yellow-200'
+  'rounded-[1px] bg-cyan-300 px-3 py-0.5 text-cyan-900 shadow-xl shadow-pink-100/30 ring-2 ring-cyan-200 transition hover:scale-105 hover:bg-yellow-300 hover:text-yellow-800 hover:ring-yellow-200 hover:shadow-lg hover:shadow-pink-100/30'
 
 const regularLinkClasses = 'bg-white text-rose-900 shadow-md'
 ---
@@ -28,12 +31,25 @@ const regularLinkClasses = 'bg-white text-rose-900 shadow-md'
       <a
         href={link.path}
         class={cx(
-          'inline-block px-2 font-party font-semibold hover:rotate-0 sm:text-xl md:mt-0',
+          'inline-block px-2 pt-1 font-party font-semibold hover:rotate-0 sm:text-xl md:mt-0',
           index % 2 === 0 ? 'rotate-3' : '-rotate-3',
           link.highlight ? highlightLinkClasses : regularLinkClasses
         )}
       >
-        {link.name}
+        {link.path === 'https://protailwind.com' ? (
+          <span class="flex items-center gap-2">
+            <span>{link.name}</span>
+            <Image
+              src={protailwindCorgi}
+              alt="illustration of the Pro Tailwind corgi mascot"
+              class="-mt-1 size-5 rounded-full sm:size-6"
+              width={48}
+              height={48}
+            />
+          </span>
+        ) : (
+          link.name
+        )}
       </a>
     ))
   }

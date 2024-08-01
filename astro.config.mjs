@@ -1,16 +1,15 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import robotsTxt from 'astro-robots-txt'
-import { astroImageTools } from 'astro-imagetools'
 import react from '@astrojs/react'
-import keystaticAstro from '@keystatic/astro'
 import vercel from '@astrojs/vercel/serverless'
 
-// https://astro.build/config
+import robotsTxt from 'astro-robots-txt'
+import keystaticAstro from '@keystatic/astro'
+
 export default defineConfig({
   site: 'https://simonswiss.com/',
-  integrations: [mdx(), sitemap(), robotsTxt(), astroImageTools, react(), keystaticAstro()],
+  integrations: [mdx(), sitemap(), robotsTxt(), react(), keystaticAstro()],
   markdown: {
     shikiConfig: {
       theme: 'dracula',

@@ -19,31 +19,29 @@ const footerClasses =
     ? cx(
         'bg-gradient-to-br px-4 py-8 font-party text-lg text-white sm:px-8 lg:px-0',
         gradientStart,
-        gradientEnd,
+        gradientEnd
       )
     : 'px-4 py-8 font-party text-lg text-white sm:px-8 lg:px-0'
 ---
 
 <footer class={footerClasses}>
-  <div
-    class="mx-auto flex max-w-4xl flex-col items-center gap-6 sm:flex-row sm:justify-between"
-  >
+  <div class="mx-auto flex max-w-4xl flex-col items-center gap-6 sm:flex-row sm:justify-between">
     <p>
       Built with{' '}
       <a
-        class="inline-block rotate-2 bg-white/25 px-2 pt-1 hover:rotate-0"
+        class="inline-block rotate-2 bg-white/25 px-2 pt-1 font-semibold hover:rotate-0"
         href="https://astro.build"
       >
         Astro
       </a>,{' '}
       <a
-        class="inline-block -rotate-3 bg-white/25 px-2 pt-1 hover:rotate-0"
+        class="inline-block -rotate-3 bg-white/25 px-2 pt-1 font-semibold hover:rotate-0"
         href="https://keystatic.com"
       >
         Keystatic
       </a>{' '}and{' '}
       <a
-        class="inline-block rotate-3 bg-white/25 px-2 pt-1 hover:rotate-0"
+        class="inline-block rotate-3 bg-white/25 px-2 pt-1 font-semibold hover:rotate-0"
         href="https://tailwindcss.com">Tailwind</a
       >
     </p>
@@ -59,17 +57,13 @@ const footerClasses =
       <li>
         <a href="https://youtube.com/@simonswiss">
           <span class="sr-only">YouTube</span>
-          <YouTubeIcon
-            class="h-6 w-6 transition hover:rotate-6 hover:scale-150 hover:text-black"
-          />
+          <YouTubeIcon class="h-6 w-6 transition hover:rotate-6 hover:scale-150 hover:text-black" />
         </a>
       </li>
       <li>
         <a href="https://github.com/simonswiss">
           <span class="sr-only">GitHub</span>
-          <GitHubIcon
-            class="h-6 w-6 transition hover:-rotate-6 hover:scale-150 hover:text-black"
-          />
+          <GitHubIcon class="h-6 w-6 transition hover:-rotate-6 hover:scale-150 hover:text-black" />
         </a>
       </li>
     </ul>

@@ -26,7 +26,6 @@
     "@types/react-dom": "^18.2.18",
     "astro": "^4.0.3",
     "astro-analytics": "^2.6.0",
-    "astro-imagetools": "^0.9.0",
     "prettier-plugin-astro": "^0.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

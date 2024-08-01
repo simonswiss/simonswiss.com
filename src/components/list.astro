@@ -1,7 +1,15 @@
 ---
+import type { CollectionEntry } from 'astro:content'
 import tinytime from 'tinytime'
 
-const { items } = Astro.props
+type Props = {
+  items:
+    | CollectionEntry<'articles'>[]
+    | CollectionEntry<'screencasts'>[]
+    | CollectionEntry<'talks'>[]
+}
+
+const { items } = Astro.props as Props
 
 const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
 ---
@@ -22,7 +30,7 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
             </dl>
             <div class="space-y-5 xl:col-span-3">
               <div class="space-y-6">
-                <h2 class="text-2xl font-bold leading-8 tracking-tight md:text-3xl text-pretty">
+                <h2 class="text-pretty text-2xl font-bold leading-8 tracking-tight md:text-3xl">
                   <a
                     href={`/${item.collection}/${item.slug}`}
                     class="font-party text-gray-900 hover:underline"
@@ -31,7 +39,7 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
                   </a>
                 </h2>
               </div>
-              <div class="prose lg:prose-lg xl:prose-xl flex max-w-none flex-col gap-8 text-gray-500 sm:flex-row">
+              <div class="prose flex max-w-none flex-col gap-8 text-gray-500 lg:prose-lg xl:prose-xl sm:flex-row">
                 {item.data.thumbnail && (
                   <a class="not-prose shrink-0" href={`/${item.collection}/${item.slug}`}>
                     <img
