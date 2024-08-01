@@ -1,5 +1,9 @@
 import { fields } from '@keystatic/core'
 import { wrapper, block } from '@keystatic/core/content-components'
+import { AspectRatio, Box } from '@keystar/ui/layout'
+import { Text } from '@keystar/ui/typography'
+
+import { ImagePreviewer } from '@utils/image-previewer'
 
 export const YouTubeVideo = block({
   label: 'YouTube Video',
@@ -7,14 +11,19 @@ export const YouTubeVideo = block({
     id: fields.text({ label: 'Video ID' }),
   },
   ContentView: (props) => (
-    <iframe
-      className="my-8 aspect-video w-full rounded-lg shadow-xl ring ring-black"
-      title="youtube player"
-      src={`https://www.youtube.com/embed/${props.value.id}`}
-      frame-border="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-      allow-full-screen
-    ></iframe>
+    <AspectRatio value="560 / 315">
+      <Box
+        padding="medium"
+        border="muted"
+        borderRadius="regular"
+        elementType="iframe"
+        title="youtube player"
+        width="100%"
+        src={`https://www.youtube.com/embed/${props.value.id}`}
+        frame-border="0"
+        allow-full-screen
+      ></Box>
+    </AspectRatio>
   ),
 })
 
@@ -24,19 +33,24 @@ export const VimeoVideo = block({
     id: fields.text({ label: 'Video ID' }),
   },
   ContentView: (props) => (
-    <iframe
-      className="my-8 aspect-video w-full rounded-lg shadow-xl ring ring-black"
-      src={`https://player.vimeo.com/video/${props.value.id}`}
-      frame-border="0"
-      allow="autoplay; fullscreen"
-      allow-full-screen
-    ></iframe>
+    <AspectRatio value="560 / 315">
+      <Box
+        padding="medium"
+        border="muted"
+        borderRadius="regular"
+        elementType="iframe"
+        src={`https://player.vimeo.com/video/${props.value.id}`}
+        frame-border="0"
+        allow-full-screen
+      ></Box>
+    </AspectRatio>
   ),
 })
 
 export const IntroText = wrapper({
   label: 'Intro Text',
   schema: {},
+  ContentView: (props) => <Box padding="large">{props.children}</Box>,
 })
 
 export const Tweet = block({
@@ -58,4 +72,17 @@ export const captionImage = (collection: string) =>
       alt: fields.text({ label: 'Alt', validation: { length: { min: 1 } } }),
       class: fields.text({ label: 'Class' }),
     },
+    ContentView: (props) => (
+      <>
+        <Box
+          padding="small"
+          maxWidth="container.xsmall"
+          border="muted"
+          borderRadius="regular"
+        >
+          <ImagePreviewer imgData={props.value.src} alt={props.value.alt} />
+        </Box>
+        <Text color="neutralTertiary">{props.value.alt}</Text>
+      </>
+    ),
   })
