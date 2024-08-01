@@ -33,7 +33,7 @@ export const VimeoVideo = block({
     id: fields.text({ label: 'Video ID' }),
   },
   ContentView: (props) => (
-    <AspectRatio value="560 / 315">
+    <AspectRatio value="16 / 9.3">
       <Box
         padding="medium"
         border="muted"
