@@ -19,7 +19,7 @@ const { href, image, proseClass = 'prose-pink', align = 'center' } = Astro.props
   >
   </div>
   <div
-    class="relative flex overflow-hidden rounded-2xl shadow-xl shadow-purple-900/10 ring ring-black transition-all hover:shadow-lg hover:shadow-purple-900/20"
+    class="relative flex overflow-hidden rounded-2xl shadow-xl shadow-purple-900/10 ring-3 ring-black transition-all hover:shadow-lg hover:shadow-purple-900/20"
   >
     <div
       class="relative hidden w-full max-w-[12rem] overflow-hidden border-r-[3px] border-black md:block"
@@ -38,7 +38,7 @@ const { href, image, proseClass = 'prose-pink', align = 'center' } = Astro.props
         align === 'center' ? 'place-items-center' : 'items-center',
       ]}
     >
-      <div class="relative mb-4 h-32 w-32 overflow-hidden rounded-full ring ring-black md:hidden">
+      <div class="relative mb-4 h-32 w-32 overflow-hidden rounded-full ring-3 ring-black md:hidden">
         <Image
           src={image}
           alt="illustration of the Pro Tailwind corgi mascot"

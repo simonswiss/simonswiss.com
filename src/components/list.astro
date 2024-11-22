@@ -43,13 +43,13 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
                 {item.data.thumbnail && (
                   <a class="not-prose shrink-0" href={`/${item.collection}/${item.slug}`}>
                     <img
-                      class="w-40 rounded-xl ring ring-black hover:ring-purple-700"
+                      class="w-40 rounded-xl ring-3 ring-black hover:ring-purple-700"
                       src={item.data.thumbnail}
                       alt=""
                     />
                   </a>
                 )}
-                <p class="!my-0" set:html={item.data.description} />
+                <p class="my-0!" set:html={item.data.description} />
               </div>
               <div class="text-base font-medium leading-6">
                 <a
