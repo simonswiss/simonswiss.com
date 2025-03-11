@@ -112,53 +112,6 @@ You can redefine this variable value at different theme scopes like so:
 }
 ```
 
-And that’s all you need to apply themable classes to your HTML:
+And that’s all you need!
 
-<CaptionImage src="/src/assets/images/articles/tailwind-v4-multi-theme/theming-1.png" alt="Minimal theming strategy in Tailwind v4">
-  Minimal theming strategy in Tailwind v4
-</CaptionImage>
-
-> Wait, why can't I just use the `bg-primary` class?
-
-Well, using the `bg-primary` class directly would retrieve the actual HEX color defined in the `@theme` block:
-
-<CaptionImage src="/src/assets/images/articles/tailwind-v4-multi-theme/theming-2.png" alt="CSS class hover showing the HEX value consumption">
-  Utilities generated from the `@theme` block will consume the actual color
-  value defined.
-</CaptionImage>
-
-If you want to use “normal” utility classes like `bg-primary` directly, you can go an extra step:
-
-## Mapping the `@theme` CSS variables to another variable
-
-You can define *another* CSS variable which will be consumed by the `@theme` theme variable:
-
-<CaptionImage src="/src/assets/images/articles/tailwind-v4-multi-theme/theming-3.png" alt="Advanced theming setup">
-  Theming setup to support `bg-primary` directly
-</CaptionImage>
-
-This time, the `bg-primary` class will consume a CSS variable that changes for every theme scope.
-
-## No `<alpha-value>` needed!
-
-Did you notice we didn’t have to *construct* an `rgb()` color composed with the `<alpha-value>`?
-
-Opacity support straight up works with HEX or any other color format, because Tailwind CSS v4 is using [`color-mix()`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to compose the opacity:
-
-<CaptionImage src="/src/assets/images/articles/tailwind-v4-multi-theme/theming-4.png" alt="Opacity support without alpha-value">
-  Opacity support without using Tailwind's internal `<alpha-value>`.
-</CaptionImage>
-
----
-
-## Updating the Multi-Theme Strategy workshop
-
-This all means that some parts of the [Multi-Theme Strategy workshop](https://www.protailwind.com/workshops/multi-theme-strategy) *could* be simplified.
-
-I say *could*, because right now, there is no Plugin API support for Tailwind CSS v4. There isn’t even support for the `tailwind.config` file.
-
-In other words, you can manually define themable CSS variables, but you can’t automate the process of passing a JSON theme to a plugin and have it generate all the theming parts for you.
-
-When that becomes available, I’ll definitely look into upgrading the strategy to the best possible approach in v4!
-
-Have a great day ❤️
+Pretty neat, huh?
