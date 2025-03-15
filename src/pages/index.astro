@@ -33,29 +33,32 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
       </div>
       <div class="pt-12 sm:flex-1">
         <div
-          class="flex flex-col justify-between space-y-12 text-rose-100 md:flex-row md:items-center md:space-x-8 md:space-y-0"
+          class="flex flex-col justify-between space-y-12 text-rose-100 md:flex-row md:items-center md:space-y-0 md:space-x-8"
         >
-          <div class="space-y-6 font-party md:space-y-8">
+          <div class="font-party space-y-6 md:space-y-8">
             <p class="text-5xl leading-none md:text-7xl">
               {homepageContent.data.title}
             </p>
-            <h1 class="text-pretty text-3xl font-medium leading-snug">
+            <h1 class="text-3xl leading-snug font-medium text-pretty">
               {homepageContent.data.description}
             </h1>
-            <p class="text-pretty text-3xl font-medium leading-snug">
+            <p class="text-3xl leading-snug font-medium text-pretty">
               I teach web dev stuff on <a
                 class="underline hover:no-underline"
+                href="https://laracasts.com">Laracasts</a
+              >, through <a
+                class="underline hover:no-underline"
                 href="https://www.epicweb.dev/workshops/pixel-perfect-figma-to-tailwind">Epic Web</a
-              > and <a class="underline hover:no-underline" href="https://protailwind.com"
+              > and my indie <a class="underline hover:no-underline" href="https://protailwind.com"
                 >Pro Tailwind</a
-              >.
+              > platform.
             </p>
             <ul class="flex gap-8">
               <li>
                 <a href="https://twitter.com/simonswiss">
                   <span class="sr-only">Twitter</span>
                   <TwitterIcon
-                    class="h-8 w-8 transition hover:-rotate-6 hover:scale-150 hover:text-black"
+                    class="h-8 w-8 transition hover:scale-150 hover:-rotate-6 hover:text-black"
                   />
                 </a>
               </li>
@@ -63,7 +66,7 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
                 <a href="https://youtube.com/@simonswiss">
                   <span class="sr-only">YouTube</span>
                   <YouTubeIcon
-                    class="h-8 w-8 transition hover:rotate-6 hover:scale-150 hover:text-black"
+                    class="h-8 w-8 transition hover:scale-150 hover:rotate-6 hover:text-black"
                   />
                 </a>
               </li>
@@ -71,7 +74,7 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
                 <a href="https://github.com/simonswiss">
                   <span class="sr-only">GitHub</span>
                   <GitHubIcon
-                    class="h-8 w-8 transition hover:-rotate-6 hover:scale-150 hover:text-black"
+                    class="h-8 w-8 transition hover:scale-150 hover:-rotate-6 hover:text-black"
                   />
                 </a>
               </li>
@@ -86,7 +89,7 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
           </div>
         </div>
 
-        <div class="grid gap-8 pb-6 pt-12">
+        <div class="grid gap-8 pt-12 pb-6">
           <EpicWebCta />
           <ProTailwindCta />
         </div>
