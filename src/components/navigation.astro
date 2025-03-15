@@ -13,6 +13,7 @@ const navLinks = [
   { name: 'Articles', path: '/articles' },
   { name: 'Screencasts', path: '/screencasts' },
   { name: 'Talks', path: '/talks' },
+  { name: 'Uses', path: '/uses' },
 ]
 
 function cx(...classes: string[]) {
@@ -31,7 +32,7 @@ const regularLinkClasses = 'bg-white text-rose-900 shadow-md'
       <a
         href={link.path}
         class={cx(
-          'inline-block px-2 pt-1 font-party font-semibold hover:rotate-0 sm:text-xl md:mt-0',
+          'font-party inline-block px-2 pt-1 font-semibold hover:rotate-0 sm:text-xl md:mt-0',
           index % 2 === 0 ? 'rotate-3' : '-rotate-3',
           link.highlight ? highlightLinkClasses : regularLinkClasses
         )}

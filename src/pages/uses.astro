@@ -1,0 +1,29 @@
+---
+import PageLayout from '@layouts/page.astro'
+import IntroText from '@components/intro-text.astro'
+import YouTubeVideo from '@components/youtube-video.astro'
+import Courses from '@components/cta/courses.astro'
+---
+
+<PageLayout
+  title="Simon Says: This is what I use"
+  description="The NavBar is a podcast that helps you NAVigate the web and raise the BAR of your content creation."
+  gradientStart="from-blue-400"
+  gradientEnd="to-emerald-500"
+>
+  <div class="mx-auto max-w-3xl pt-10">
+    <IntroText> Placeholder page for my "uses" list. </IntroText>
+
+    <p>Now go write that page, Simon!</p>
+
+    <div class="prose prose-purple lg:prose-lg xl:prose-xl max-w-none pt-10 pb-8">
+      <p>
+        Watch our shows on <a href="https://www.youtube.com/@navbar8999">YouTube</a> and check out <a
+          href="https://navbar.tech">The NavBar website</a
+        >!
+      </p>
+    </div>
+    <hr class="mb-4 ml-0 w-16 border-2 border-t border-gray-300" />
+    <Courses />
+  </div>
+</PageLayout>
