@@ -1,12 +1,5 @@
+import { glob } from 'astro/loaders'
 import { z, defineCollection } from 'astro:content'
-
-const homepageCollection = defineCollection({
-  type: 'data',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-  }),
-})
 
 const articlesCollection = defineCollection({
   schema: z.object({
@@ -32,7 +25,6 @@ const screencastsCollection = defineCollection({
 })
 
 export const collection = {
-  homepage: homepageCollection,
   articles: articlesCollection,
   talks: talksCollection,
   screencasts: screencastsCollection,

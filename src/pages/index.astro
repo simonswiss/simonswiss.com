@@ -15,9 +15,6 @@ import avatar from '@/assets/images/new-avatar.png'
 import ProTailwindCta from '@components/cta/pro-tailwind.astro'
 import EpicWebCta from '@components/cta/epic-web.astro'
 
-const homepageContent = await getEntry('homepage', 'index')
-if (!homepageContent) throw new Error('No homepage content found')
-
 const seoTitle = 'simonswiss | Web designer, developer & content creator'
 const seoDescription = 'Swiss front end designer and developer based in Sydney, Australia.'
 ---
@@ -27,20 +24,19 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
     <div
       class="space-between mx-auto flex min-h-screen max-w-4xl flex-col px-4 sm:px-8 lg:max-w-5xl"
     >
-      <div class="flex items-center space-x-10">
+      <header class="flex items-center space-x-10 py-4">
         <Logo />
         <Navigation />
-      </div>
+      </header>
       <div class="pt-12 sm:flex-1">
         <div
           class="flex flex-col justify-between space-y-12 text-rose-100 md:flex-row md:items-center md:space-y-0 md:space-x-8"
         >
           <div class="font-party space-y-6 md:space-y-8">
-            <p class="text-5xl leading-none md:text-7xl">
-              {homepageContent.data.title}
-            </p>
+            <p class="text-5xl leading-none md:text-7xl">Hi, I'm Simon!</p>
             <h1 class="text-3xl leading-snug font-medium text-pretty">
-              {homepageContent.data.description}
+              I'm a hybrid designer, developer and video producer with an optimistic and
+              enthusiastic approach to life!
             </h1>
             <p class="text-3xl leading-snug font-medium text-pretty">
               I teach web dev stuff on <a
