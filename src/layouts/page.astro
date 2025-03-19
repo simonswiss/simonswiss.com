@@ -21,12 +21,12 @@ const { title, description, gradientStart, gradientEnd } = Astro.props as Props
         class={`bg-linear-to-br px-4 pb-4 ${gradientStart} ${gradientEnd} sm:px-8 sm:pb-6 md:pb-10 lg:px-0`}
       >
         <div class="mx-auto max-w-4xl space-y-4">
-          <div class="flex items-center space-x-10">
+          <header class="flex items-center space-x-10 py-4">
             <Logo />
             <Navigation />
-          </div>
+          </header>
           <h1
-            class="md:leading-14 text-pretty font-party text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl"
+            class="font-party text-3xl leading-9 font-extrabold tracking-tight text-pretty text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
           >
             {title}
           </h1>

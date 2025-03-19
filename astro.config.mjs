@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 
 import robotsTxt from 'astro-robots-txt'
 import keystaticAstro from '@keystatic/astro'
@@ -15,6 +15,5 @@ export default defineConfig({
       theme: 'dracula',
     },
   },
-  output: 'hybrid',
   adapter: vercel(),
 })

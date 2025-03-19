@@ -1,0 +1,96 @@
+---
+import PageLayout from '@layouts/page.astro'
+import IntroText from '@components/intro-text.astro'
+import YouTubeVideo from '@components/youtube-video.astro'
+import Courses from '@components/cta/courses.astro'
+import ProTailwindCta from '@components/cta/pro-tailwind.astro'
+import EpicWebCta from '@components/cta/epic-web.astro'
+---
+
+<PageLayout
+  title="/uses: Simon's list of things"
+  description="An evolving list of things I use and enjoy. Lights, microphones, camera, software and all!"
+  gradientStart="from-cyan-400"
+  gradientEnd="to-sky-500"
+>
+  <div class="mx-auto max-w-3xl pt-10">
+    <IntroText
+      >Almost every day, I get asked about my vscode color theme and font, what microphone I use,
+      what camera lens I recommend. Here's a non-exhaustive and evolving list of the things I own
+      and recommend :)
+    </IntroText>
+
+    <article>
+      <div class="mx-auto max-w-3xl">
+        <div class="xl:col-span-3 xl:row-span-2 xl:pb-0">
+          <div class="prose prose-purple lg:prose-lg xl:prose-xl max-w-none pt-10 pb-8">
+            <hr />
+            <p>Please note: this page may or may not include affiliate links 🙉</p>
+            <hr />
+            <h2>Code editor</h2>
+            <ul>
+              <li>I use <a href="https://code.visualstudio.com/">VS Code</a> as my code editor.</li>
+              <li>
+                My <strong>color theme</strong> is <a
+                  href="https://marketplace.visualstudio.com/items?itemName=sdras.night-owl"
+                  >Night Owl</a
+                > by Sarah Drasner.
+              </li>
+              <li>
+                The <strong>font</strong> I use is <a
+                  href="https://philpl.gumroad.com/l/dank-mono?a=810537075">Dank Mono</a
+                > by Phil Pluckthun.
+              </li>
+            </ul>
+            <h2>Video stuff</h2>
+            <ul>
+              <li>
+                My camera is the <a href="https://amzn.to/423jjgO">Sony alpha 6100</a>. It has great
+                colors and amazing autofocus.
+              </li>
+              <li>
+                I pair it with the <a href="https://amzn.to/41G4yR6">Sigma 16mm F/1.4</a> lens for a
+                cinematic look. This might be my favourite piece of equipment — I LOVE it.
+              </li>
+            </ul>
+            <h2>Audio stuff</h2>
+            <ul>
+              <li>
+                My <strong>on-camera microphone</strong> is the <a href="https://amzn.to/4bCrwNB"
+                  >Earthworks Icon Pro</a
+                > and I absolutely love it. It has the broacast/dynamic qualities of an <a
+                  href="https://amzn.to/3FCVaWZ">SM7B</a
+                >, with the clarity of a high-end condenser microphone.
+              </li>
+              <li>
+                For my <strong>off-camera takes</strong> — when you don't see the mic, I use the <a
+                  href="https://amzn.to/4433KZ4">Senheiser MKE-600</a
+                >. It's very hard to beat the price/quality ratio of this microphone.
+              </li>
+              <li>
+                My <strong>audio interface</strong> is the <strong>Rodecaster Pro (original)</strong
+                >. I would recommend the <a href="https://amzn.to/4ihjTP8">Rodecaster Pro Duo</a> instead
+                in 2025. I really want one myself 😅
+              </li>
+              <li>
+                My boom arms (I have 2) are the <a href="https://amzn.to/4l304N0"
+                  >Elgato Wave Low Profile</a
+                > and the <a href="https://amzn.to/3Y26ylr">Rode PSA1+</a>. One comes from below
+                (Elgato), and one from above (Rode) 🤣
+              </li>
+            </ul>
+            <hr />
+            <h2>I got wayyyyy more stuff</h2>
+            <p>
+              This list could get much bigger. While I won't list <em>everything</em> I own, I will try
+              complete and update this page in the future 🤗
+            </p>
+          </div>
+          <hr class="mb-4 ml-0 w-16 border-2 border-t border-gray-300" />
+          <Courses />
+        </div>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </article>
+  </div>
+</PageLayout>
