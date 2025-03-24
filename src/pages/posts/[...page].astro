@@ -1,26 +1,25 @@
 ---
-import { getCollection } from 'astro:content'
-
 import PageLayout from '@layouts/page.astro'
 import List from '@components/list.astro'
 import Pagination from '@components/pagination.astro'
 import { PAGINATION_COUNT } from '@/config'
 import Courses from '@components/cta/courses.astro'
 import type { GetStaticPathsOptions } from 'astro'
+import { getCollection } from 'astro:content'
 
 const { page } = Astro.props
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const articles = await getCollection('articles')
-  const sortedArticles = articles.sort(
+  const posts = await getCollection('posts')
+  const sortedPosts = posts.sort(
     (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   )
-  return paginate(sortedArticles, { pageSize: PAGINATION_COUNT })
+  return paginate(sortedPosts, { pageSize: PAGINATION_COUNT })
 }
 ---
 
 <PageLayout
-  title="Articles"
+  title="Posts"
   description="Thoughts and personal experiences on front end development, and sometimes blogging about other stuff!"
   gradientStart="from-cyan-500"
   gradientEnd="to-blue-600"

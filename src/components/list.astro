@@ -3,10 +3,7 @@ import type { CollectionEntry } from 'astro:content'
 import tinytime from 'tinytime'
 
 type Props = {
-  items:
-    | CollectionEntry<'articles'>[]
-    | CollectionEntry<'screencasts'>[]
-    | CollectionEntry<'talks'>[]
+  items: CollectionEntry<'posts'>[] | CollectionEntry<'talks'>[]
 }
 
 const { items } = Astro.props as Props
@@ -22,7 +19,7 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
           <article class="grid gap-2 xl:grid-cols-4 xl:items-baseline xl:gap-8 xl:space-y-0">
             <dl>
               <dt class="sr-only">Published on</dt>
-              <dd class="font-party text-base font-medium leading-6 text-gray-500">
+              <dd class="font-party text-base leading-6 font-medium text-gray-500">
                 <time datetime={item.data.pubDate}>
                   {postDateTemplate.render(new Date(item.data.pubDate))}
                 </time>
@@ -30,18 +27,18 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
             </dl>
             <div class="space-y-5 xl:col-span-3">
               <div class="space-y-6">
-                <h2 class="text-pretty text-2xl font-bold leading-8 tracking-tight md:text-3xl">
+                <h2 class="text-2xl leading-8 font-bold tracking-tight text-pretty md:text-3xl">
                   <a
-                    href={`/${item.collection}/${item.slug}`}
+                    href={`/${item.collection}/${item.id}`}
                     class="font-party text-gray-900 hover:underline"
                   >
                     {item.data.title}
                   </a>
                 </h2>
               </div>
-              <div class="prose flex max-w-none flex-col gap-8 text-gray-500 lg:prose-lg xl:prose-xl sm:flex-row">
-                {item.data.thumbnail && (
-                  <a class="not-prose shrink-0" href={`/${item.collection}/${item.slug}`}>
+              <div class="prose lg:prose-lg xl:prose-xl flex max-w-none flex-col gap-8 text-gray-500 sm:flex-row">
+                {item.data?.thumbnail && (
+                  <a class="not-prose shrink-0" href={`/${item.collection}/${item.id}`}>
                     <img
                       class="w-40 rounded-xl ring-3 ring-black hover:ring-purple-700"
                       src={item.data.thumbnail}
@@ -51,9 +48,9 @@ const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
                 )}
                 <p class="my-0!" set:html={item.data.description} />
               </div>
-              <div class="text-base font-medium leading-6">
+              <div class="text-base leading-6 font-medium">
                 <a
-                  href={`/${item.collection}/${item.slug}`}
+                  href={`/${item.collection}/${item.id}`}
                   class="font-party text-teal-500 hover:text-teal-600"
                   aria-label={`Read "${item.data.title}"`}
                 >

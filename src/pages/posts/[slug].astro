@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from 'astro:content'
+import { getCollection, getEntry, render } from 'astro:content'
 import tinytime from 'tinytime'
 
 import YouTubeVideo from '@components/youtube-video.astro'
@@ -15,32 +15,35 @@ import EpicWebCta from '@components/cta/epic-web.astro'
 const postDateTemplate = tinytime('{dddd}, {MMMM} {DD}, {YYYY}')
 
 const { slug } = Astro.params
+
 if (slug === undefined) {
   throw new Error('slug is undefined')
 }
-const article = await getEntryBySlug('articles', slug)
-if (article === undefined) {
-  throw new Error('article is undefined')
+const post = await getEntry('posts', slug)
+if (post === undefined) {
+  throw new Error('post is undefined')
 }
 
-const { Content } = await article.render()
+const { Content } = await render(post)
 
 export async function getStaticPaths() {
-  const articles = await getCollection('articles')
-  const sortedArticles = articles.sort(
+  const posts = await getCollection('posts')
+  const sortedPosts = posts.sort(
     (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   )
-  return sortedArticles.map((article) => ({
-    params: {
-      slug: article.slug,
-    },
-  }))
+  return sortedPosts.map((post) => {
+    return {
+      params: {
+        slug: post.id,
+      },
+    }
+  })
 }
 ---
 
 <PageLayout
-  title={article.data.title}
-  description={article.data.description}
+  title={post.data.title}
+  description={post.data.description}
   gradientStart="from-cyan-500"
   gradientEnd="to-blue-600"
 >
@@ -48,14 +51,14 @@ export async function getStaticPaths() {
     <div class="mx-auto max-w-3xl">
       <div class="xl:col-span-3 xl:row-span-2 xl:pb-0">
         <div
-          class="prose prose-purple max-w-none pb-8 pt-10 lg:prose-lg xl:prose-xl prose-h3:text-lg lg:prose-h3:text-xl [&_:where(h1,h2,h3,h4,h5)_code]:bg-purple-100"
+          class="prose prose-purple lg:prose-lg xl:prose-xl prose-h3:text-lg lg:prose-h3:text-xl max-w-none pt-10 pb-8 [&_:where(h1,h2,h3,h4,h5)_code]:bg-purple-100"
         >
           <dl class="space-y-10">
             <div>
               <dt class="sr-only">Published on</dt>
-              <dd class="font-party text-base font-medium leading-6 text-gray-500">
-                <time datetime={article.data.pubDate}
-                  >{postDateTemplate.render(new Date(article.data.pubDate))}</time
+              <dd class="font-party text-base leading-6 font-medium text-gray-500">
+                <time datetime={post.data.pubDate}
+                  >{postDateTemplate.render(new Date(post.data.pubDate))}</time
                 >
               </dd>
             </div>

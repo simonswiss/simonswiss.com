@@ -16,4 +16,12 @@ export default defineConfig({
     },
   },
   adapter: vercel(),
+  redirects: {
+    // Consolidate screencasts and articles
+    '/articles': '/posts',
+    '/screencasts': '/posts',
+
+    '/articles/[...slug]': '/posts/[...slug]',
+    '/screencasts/[...slug]': '/posts/[...slug]',
+  },
 })

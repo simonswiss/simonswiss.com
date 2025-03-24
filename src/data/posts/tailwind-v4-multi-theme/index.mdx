@@ -4,12 +4,14 @@ description: >-
   You’ve probably heard that a very alpha version of Tailwind CSS v4 has been
   open sourced. It’s not ready for production yet, but let's tale a look at how
   it simplifies setting up a multi-theme strategy.
-pubDate: 2024-03-09
+pubDate: '2024-03-09'
 ---
+
 <IntroText>
   You’ve probably heard that a very alpha version of Tailwind CSS v4 [has been open sourced](https://tailwindcss.com/blog/tailwindcss-v4-alpha).
 
-  It’s not ready for production yet, but let's tale a look at how it simplifies setting up a multi-theme strategy.
+It’s not ready for production yet, but let's tale a look at how it simplifies setting up a multi-theme strategy.
+
 </IntroText>
 
 ## Theme configuration in CSS
@@ -20,7 +22,7 @@ Theme values (like colors, font sizes, spacing) can be defined with CSS variable
 
 ```css
 /* app/styles.css */
-@import 'tailwindcss'; 
+@import 'tailwindcss';
 
 @theme {
   --color-primary: #aab9ff;
@@ -50,7 +52,7 @@ In v4, the CSS variables are also exposed in your CSS output, which means you ca
 
 ## Multi-Theme Strategy in Tailwind
 
-If you’ve taken my [Multi-Theme Strategy workshop](https://www.protailwind.com/workshops/multi-theme-strategy), you know that the procedure to define *themable* CSS variables was somewhat convoluted:
+If you’ve taken my [Multi-Theme Strategy workshop](https://www.protailwind.com/workshops/multi-theme-strategy), you know that the procedure to define _themable_ CSS variables was somewhat convoluted:
 
 ### 1. Define CSS variables holding `R` `G` `B` channels
 
@@ -80,7 +82,7 @@ Honestly, this is quite painful. And forces you to define your colors in a weird
 
 Tailwind CSS v4 drastically simplifies the process of defining themable CSS variables:
 
-### 1. Define a CSS variable with *any* color format, in CSS
+### 1. Define a CSS variable with _any_ color format, in CSS
 
 ```css
 @theme {

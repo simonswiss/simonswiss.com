@@ -1,31 +1,23 @@
+import { z, defineCollection, getCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
-import { z, defineCollection } from 'astro:content'
 
-const articlesCollection = defineCollection({
+const posts = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: 'src/data/posts' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     pubDate: z.string(),
+    thumbnail: z.string().optional(),
   }),
 })
-const talksCollection = defineCollection({
+const talks = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: 'src/data/talks' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     pubDate: z.string(),
-  }),
-})
-const screencastsCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    pubDate: z.string(),
-    thumbnail: z.string(),
+    thumbnail: z.string().optional(),
   }),
 })
 
-export const collection = {
-  articles: articlesCollection,
-  talks: talksCollection,
-  screencasts: screencastsCollection,
-}
+export const collections = { posts, talks }

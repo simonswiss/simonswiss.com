@@ -48,9 +48,9 @@ export default config({
     }),
   },
   collections: {
-    articles: collection({
-      label: 'Articles',
-      path: 'src/content/articles/*/',
+    posts: collection({
+      label: 'Posts',
+      path: 'src/content/posts/*',
       slugField: 'title',
       format: {
         contentField: 'content',
@@ -59,6 +59,7 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         description: fields.text({ label: 'Description', multiline: true }),
         pubDate: fields.date({ label: 'Pub Date' }),
+        thumbnail: fields.text({ label: 'Thumbnail URL (if YouTube video)' }),
         content: fields.mdx({
           label: 'Content',
           components: {
@@ -66,31 +67,7 @@ export default config({
             VimeoVideo,
             Tweet,
             IntroText,
-            CaptionImage: captionImage('articles'),
-          },
-        }),
-      },
-    }),
-    screencasts: collection({
-      label: 'Screencasts',
-      path: 'src/content/screencasts/*/',
-      slugField: 'title',
-      format: {
-        contentField: 'content',
-      },
-      schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
-        description: fields.text({ label: 'Description', multiline: true }),
-        pubDate: fields.date({ label: 'Pub Date' }),
-        thumbnail: fields.text({ label: 'Thumbnail URL' }),
-        content: fields.mdx({
-          label: 'Content',
-          components: {
-            YouTubeVideo,
-            VimeoVideo,
-            Tweet,
-            IntroText,
-            CaptionImage: captionImage('screencasts'),
+            CaptionImage: captionImage('posts'),
           },
         }),
       },
@@ -106,6 +83,7 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         description: fields.text({ label: 'Description', multiline: true }),
         pubDate: fields.date({ label: 'Pub Date' }),
+        thumbnail: fields.text({ label: 'Thumbnail URL (if YouTube video)' }),
         content: fields.mdx({
           label: 'Content',
           components: {
