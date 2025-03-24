@@ -1,6 +1,8 @@
 {
   "redirects": [
     { "source": "/pro-tailwind", "destination": "https://protailwind.com" },
-    { "source": "/protailwind", "destination": "https://protailwind.com" }
+    { "source": "/protailwind", "destination": "https://protailwind.com" },
+    { "source": "/articles", "destination": "posts" },
+    { "source": "/articles/:slug", "destination": "posts/:slug" }
   ]
 }
