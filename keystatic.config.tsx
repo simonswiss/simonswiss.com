@@ -37,20 +37,10 @@ export default config({
       ),
     },
   },
-  singletons: {
-    homepage: singleton({
-      label: 'Homepage',
-      path: 'src/content/homepage/index',
-      schema: {
-        title: fields.text({ label: 'Title' }),
-        description: fields.text({ label: 'Description', multiline: true }),
-      },
-    }),
-  },
   collections: {
     posts: collection({
       label: 'Posts',
-      path: 'src/content/posts/*',
+      path: 'src/data/posts/*/',
       slugField: 'title',
       format: {
         contentField: 'content',
@@ -74,7 +64,7 @@ export default config({
     }),
     talks: collection({
       label: 'Talks',
-      path: 'src/content/talks/*/',
+      path: 'src/data/talks/*/',
       slugField: 'title',
       format: {
         contentField: 'content',
