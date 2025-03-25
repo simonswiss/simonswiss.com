@@ -1,0 +1,44 @@
+---
+import PageLayout from '@layouts/page.astro'
+import IntroText from '@components/intro-text.astro'
+import Courses from '@components/cta/courses.astro'
+
+type Props = {
+  title: string
+  description: string
+  gradientStart?: string
+  gradientEnd?: string
+  introText: string
+}
+const {
+  title,
+  description,
+  gradientStart = 'from-cyan-400',
+  gradientEnd = 'to-sky-500',
+  introText,
+} = Astro.props as Props
+---
+
+<PageLayout
+  title={title}
+  description={description}
+  gradientStart={gradientStart}
+  gradientEnd={gradientEnd}
+>
+  <div class="mx-auto max-w-3xl pt-10">
+    <IntroText>{introText}</IntroText>
+
+    <article>
+      <div class="mx-auto max-w-3xl">
+        <div class="xl:col-span-3 xl:row-span-2 xl:pb-0">
+          <div class="prose prose-purple lg:prose-lg xl:prose-xl max-w-none pt-10 pb-8">
+            <slot />
+          </div>
+          <hr class="mb-4 ml-0 w-16 border-2 border-t border-gray-300" />
+          <Courses />
+        </div>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </article>
+  </div>
+</PageLayout>
