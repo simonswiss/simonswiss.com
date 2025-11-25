@@ -6,10 +6,14 @@ import vercel from '@astrojs/vercel'
 
 import robotsTxt from 'astro-robots-txt'
 import keystaticAstro from '@keystatic/astro'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   site: 'https://simonswiss.com/',
   integrations: [mdx(), sitemap(), robotsTxt(), react(), keystaticAstro()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   markdown: {
     shikiConfig: {
       theme: 'dracula',
