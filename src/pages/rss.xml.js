@@ -1,13 +1,13 @@
 import rss, { pagesGlobToRssItems } from '@astrojs/rss'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 
-export async function get() {
+export async function GET() {
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: import.meta.env.SITE,
     items: await pagesGlobToRssItems(
-      import.meta.glob('./{articles,talks,screencasts}/**/*.{md,mdx}')
+      import.meta.glob('./{posts,talks}/**/*.{md,mdx}')
     ),
   })
 }

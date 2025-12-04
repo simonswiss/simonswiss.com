@@ -9,7 +9,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "tsc"
+    "check": "tsc",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix"
   },
   "dependencies": {
     "@astro-community/astro-embed-twitter": "^0.5.8",
@@ -20,21 +22,26 @@
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/vercel": "^8.1.2",
-    "@keystar/ui": "^0.7.9",
+    "@keystar/ui": "^0.7.19",
     "@keystatic/astro": "^5.0.6",
-    "@keystatic/core": "^0.5.46",
+    "@keystatic/core": "^0.5.48",
     "@tailwindcss/vite": "^4.0.14",
-    "@types/react": "^18.2.52",
-    "@types/react-dom": "^18.2.18",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "astro": "^5.5.4",
     "astro-analytics": "^2.6.0",
     "prettier-plugin-astro": "^0.13.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
     "astro-robots-txt": "^0.5.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.5.0",
     "find-up": "^6.3.0",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.6.9",

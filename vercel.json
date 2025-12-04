@@ -1,8 +1,10 @@
 {
   "redirects": [
-    { "source": "/pro-tailwind", "destination": "https://protailwind.com" },
-    { "source": "/protailwind", "destination": "https://protailwind.com" },
-    { "source": "/articles", "destination": "posts" },
-    { "source": "/articles/:slug", "destination": "posts/:slug" }
+    { "source": "/pro-tailwind", "destination": "https://protailwind.com", "permanent": true },
+    { "source": "/protailwind", "destination": "https://protailwind.com", "permanent": true },
+    { "source": "/articles", "destination": "/posts", "permanent": true },
+    { "source": "/articles/:path*", "destination": "/posts/:path*", "permanent": true },
+    { "source": "/screencasts", "destination": "/posts", "permanent": true },
+    { "source": "/screencasts/:path*", "destination": "/posts/:path*", "permanent": true }
   ]
 }
