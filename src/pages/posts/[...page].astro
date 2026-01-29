@@ -19,8 +19,8 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 ---
 
 <PageLayout
-  title="Posts"
-  description="Thoughts and personal experiences on front end development, and sometimes blogging about other stuff!"
+  title={page.currentPage > 1 ? `Blog — Page ${page.currentPage}` : 'Blog — Front-End Development & Tailwind CSS'}
+  description="Articles and tutorials on front-end development, Tailwind CSS, React, and web design by Simon Vrachliotis."
   gradientStart="from-cyan-500"
   gradientEnd="to-blue-600"
 >

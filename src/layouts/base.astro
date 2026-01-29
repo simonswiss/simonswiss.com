@@ -7,19 +7,23 @@ export interface Props {
   title: string
   description: string
   image?: string
+  type?: 'website' | 'article'
+  publishedDate?: string
 }
 
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   image = SEO_IMAGE,
+  type = 'website',
+  publishedDate,
 } = Astro.props as Props
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead title={title} description={description} image={image} type={type} publishedDate={publishedDate} />
   </head>
   <body class="antialiased selection:bg-purple-400 selection:text-white">
     <main>

@@ -14,12 +14,10 @@ import GitHubIcon from '@components/icons/github.astro'
 import avatar from '@/assets/images/simonswiss-avatar-no-border.jpg'
 import ProTailwindCta from '@components/cta/pro-tailwind.astro'
 import EpicWebCta from '@components/cta/epic-web.astro'
-
-const seoTitle = 'simonswiss | Web designer, developer & content creator'
-const seoDescription = 'Swiss front end designer and developer based in Sydney, Australia.'
+import { SITE_TITLE, SITE_DESCRIPTION } from '@/config'
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div class="bg-linear-to-br from-rose-500 to-fuchsia-500">
     <div
       class="space-between mx-auto flex min-h-screen max-w-4xl flex-col px-4 sm:px-8 lg:max-w-5xl"
@@ -50,7 +48,7 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
 
             <ul class="flex gap-8">
               <li>
-                <a href="https://twitter.com/simonswiss">
+                <a href="https://twitter.com/simonswiss" rel="noopener noreferrer" target="_blank">
                   <span class="sr-only">Twitter</span>
                   <TwitterIcon
                     class="h-8 w-8 transition hover:scale-150 hover:-rotate-6 hover:text-black"
@@ -58,7 +56,7 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
                 </a>
               </li>
               <li>
-                <a href="https://youtube.com/@simonswiss">
+                <a href="https://youtube.com/@simonswiss" rel="noopener noreferrer" target="_blank">
                   <span class="sr-only">YouTube</span>
                   <YouTubeIcon
                     class="h-8 w-8 transition hover:scale-150 hover:rotate-6 hover:text-black"
@@ -66,7 +64,7 @@ const seoDescription = 'Swiss front end designer and developer based in Sydney, 
                 </a>
               </li>
               <li>
-                <a href="https://github.com/simonswiss">
+                <a href="https://github.com/simonswiss" rel="noopener noreferrer" target="_blank">
                   <span class="sr-only">GitHub</span>
                   <GitHubIcon
                     class="h-8 w-8 transition hover:scale-150 hover:-rotate-6 hover:text-black"

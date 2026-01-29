@@ -9,12 +9,14 @@ export interface Props {
   description: string
   gradientStart: string
   gradientEnd: string
+  type?: 'website' | 'article'
+  publishedDate?: string
 }
 
-const { title, description, gradientStart, gradientEnd } = Astro.props as Props
+const { title, description, gradientStart, gradientEnd, type = 'website', publishedDate } = Astro.props as Props
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} type={type} publishedDate={publishedDate}>
   <div class="flex min-h-screen flex-col">
     <div class="flex-1">
       <div
