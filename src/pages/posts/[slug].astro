@@ -46,6 +46,8 @@ export async function getStaticPaths() {
   description={post.data.description}
   gradientStart="from-cyan-500"
   gradientEnd="to-blue-600"
+  type="article"
+  publishedDate={post.data.pubDate.toISOString()}
 >
   <article>
     <div class="mx-auto max-w-3xl">

@@ -42,6 +42,8 @@ export async function getStaticPaths() {
   description={talk.data.description}
   gradientStart="from-cyan-500"
   gradientEnd="to-blue-600"
+  type="article"
+  publishedDate={talk.data.pubDate.toISOString()}
 >
   <article>
     <div class="mx-auto max-w-3xl">
