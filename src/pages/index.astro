@@ -37,13 +37,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/config'
               field.
             </h1>
             <p class="text-3xl leading-snug font-medium text-pretty">
-              I'm friendly and upbeat, I communicate really well, and I'm available for hire!
-            </p>
-
-            <p class="text-3xl leading-snug font-medium text-pretty">
-              <a class="underline hover:no-underline" href="https://cal.com/simonswiss/quick-chat"
-                >Let's chat!</a
-              >
+              I'm friendly and upbeat, I communicate really well, and I'm <a class="underline hover:no-underline" href="https://cal.com/simonswiss/quick-chat">available for hire</a>!
             </p>
 
             <ul class="flex gap-8">
@@ -73,7 +67,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/config'
               </li>
             </ul>
           </div>
-          <div class="group shrink-0">
+          <a href="/about" class="group shrink-0">
             <Image
               src={avatar}
               alt="simonswiss mugshot"
@@ -81,7 +75,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/config'
               width={480}
               class="size-40 rotate-6 transform rounded-full ring-[1rem] ring-fuchsia-400 transition group-hover:rotate-0 group-hover:ring-cyan-400 md:size-52"
             />
-          </div>
+          </a>
         </div>
 
         <div class="grid gap-8 pt-12 pb-6">
