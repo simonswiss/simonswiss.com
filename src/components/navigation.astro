@@ -3,16 +3,17 @@ import { Image } from 'astro:assets'
 import protailwindCorgi from '../assets/images/corgi-avatar.png'
 
 const navLinks = [
+  { name: 'About', path: '/about' },
+  { name: 'Posts', path: '/posts' },
+  { name: 'Talks', path: '/talks' },
+  { name: 'Podcast', path: '/podcast' },
+  { name: 'Uses', path: '/uses' },
   {
     name: 'Epic Web 🚀',
     path: 'https://www.epicweb.dev/workshops/pixel-perfect-figma-to-tailwind',
     highlight: true,
   },
-  { name: 'Podcast', path: '/podcast' },
   { name: 'Pro Tailwind', path: 'https://protailwind.com', highlight: true },
-  { name: 'Posts', path: '/posts' },
-  { name: 'Talks', path: '/talks' },
-  { name: 'Uses', path: '/uses' },
 ]
 
 function cx(...classes: string[]) {
