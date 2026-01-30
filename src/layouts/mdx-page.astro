@@ -9,6 +9,7 @@ type Props = {
   gradientStart?: string
   gradientEnd?: string
   introText: string
+  displayTitle?: string
 }
 const {
   title,
@@ -16,6 +17,7 @@ const {
   gradientStart = 'from-cyan-400',
   gradientEnd = 'to-sky-500',
   introText,
+  displayTitle,
 } = Astro.props as Props
 ---
 
@@ -24,6 +26,7 @@ const {
   description={description}
   gradientStart={gradientStart}
   gradientEnd={gradientEnd}
+  displayTitle={displayTitle}
 >
   <div class="mx-auto max-w-3xl pt-10">
     <IntroText>{introText}</IntroText>

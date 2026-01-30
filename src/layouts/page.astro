@@ -11,9 +11,10 @@ export interface Props {
   gradientEnd: string
   type?: 'website' | 'article'
   publishedDate?: string
+  displayTitle?: string
 }
 
-const { title, description, gradientStart, gradientEnd, type = 'website', publishedDate } = Astro.props as Props
+const { title, description, gradientStart, gradientEnd, type = 'website', publishedDate, displayTitle } = Astro.props as Props
 ---
 
 <Layout title={title} description={description} type={type} publishedDate={publishedDate}>
@@ -27,11 +28,22 @@ const { title, description, gradientStart, gradientEnd, type = 'website', publis
             <Logo />
             <Navigation />
           </header>
-          <h1
-            class="font-party text-3xl leading-9 font-extrabold tracking-tight text-pretty text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
-          >
-            {title}
-          </h1>
+          {displayTitle ? (
+            <div>
+              <h1 class="sr-only">{title}</h1>
+              <p
+                class="font-party text-3xl leading-9 font-extrabold tracking-tight text-pretty text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+              >
+                {displayTitle}
+              </p>
+            </div>
+          ) : (
+            <h1
+              class="font-party text-3xl leading-9 font-extrabold tracking-tight text-pretty text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+            >
+              {title}
+            </h1>
+          )}
         </div>
       </div>
       <main class="px-4 sm:px-8 lg:px-0 lg:py-12"><slot /></main>
