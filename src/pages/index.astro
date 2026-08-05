@@ -10,6 +10,7 @@ import Footer from '@components/footer.astro'
 import TwitterIcon from '@components/icons/twitter.astro'
 import YouTubeIcon from '@components/icons/youtube.astro'
 import GitHubIcon from '@components/icons/github.astro'
+import InstagramIcon from '@components/icons/instagram.astro'
 
 import avatar from '@/assets/images/simonswiss-avatar-no-border.jpg'
 import ProTailwindCta from '@components/cta/pro-tailwind.astro'
@@ -34,11 +35,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/config'
             <p class="text-5xl leading-none md:text-7xl">Hi, I'm Simon!</p>
             <h1 class="text-3xl leading-snug font-medium text-pretty">
               I'm a hybrid designer, developer and video producer with decades of experience in the
-              field.
+              tech space.
             </h1>
-            <p class="text-3xl leading-snug font-medium text-pretty">
-              I'm friendly and upbeat, I communicate really well, and I'm <a class="underline hover:no-underline" href="https://cal.com/simonswiss/quick-chat">available for hire</a>!
-            </p>
 
             <ul class="flex gap-8">
               <li>
@@ -62,6 +60,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/config'
                   <span class="sr-only">GitHub</span>
                   <GitHubIcon
                     class="h-8 w-8 transition hover:scale-150 hover:-rotate-6 hover:text-black"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://instagram.com/simonswiss" rel="noopener noreferrer" target="_blank">
+                  <span class="sr-only">Instagram</span>
+                  <InstagramIcon
+                    class="h-8 w-8 transition hover:scale-150 hover:rotate-6 hover:text-black"
                   />
                 </a>
               </li>

@@ -2,6 +2,7 @@
 import TwitterIcon from './icons/twitter.astro'
 import YouTubeIcon from './icons/youtube.astro'
 import GitHubIcon from './icons/github.astro'
+import InstagramIcon from './icons/instagram.astro'
 
 export interface Props {
   gradientStart?: string
@@ -64,6 +65,14 @@ const footerClasses =
         <a href="https://github.com/simonswiss">
           <span class="sr-only">GitHub</span>
           <GitHubIcon class="h-6 w-6 transition hover:scale-150 hover:-rotate-6 hover:text-black" />
+        </a>
+      </li>
+      <li>
+        <a href="https://instagram.com/simonswiss">
+          <span class="sr-only">Instagram</span>
+          <InstagramIcon
+            class="h-6 w-6 transition hover:scale-150 hover:rotate-6 hover:text-black"
+          />
         </a>
       </li>
     </ul>
